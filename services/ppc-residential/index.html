@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boyette Pump & Well — Residential PPC Landing Page Wireframe</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F5F5;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA;
+    --gray-100: #F0F0F0;
+    --gray-200: #E0E0E0;
+    --gray-300: #CCCCCC;
+    --gray-400: #AAAAAA;
+    --gray-500: #888888;
+    --gray-600: #666666;
+    --gray-700: #444444;
+    --gray-800: #2A2A2A;
+    --gray-900: #1A1A1A;
+    --accent: #3B82F6;
+    --accent-light: #DBEAFE;
+    --wireframe-border: 1px dashed #BBBBBB;
+    --radius: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--gray-700);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === WIREFRAME BADGE === */
+  .wireframe-badge {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: var(--gray-800);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    z-index: 100;
+    opacity: 0.85;
+  }
+
+  /* === PRESENTATION HEADER === */
+  .presentation-header {
+    background: var(--white);
+    border-bottom: 2px solid var(--gray-200);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .presentation-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-800);
+  }
+  .presentation-header .meta {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .presentation-header .meta span { display: flex; align-items: center; gap: 4px; }
+
+  /* === SECTION ANNOTATIONS === */
+  .section-wrapper {
+    position: relative;
+    margin: 0;
+  }
+  .section-annotation {
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    transform: translateX(-100%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  @media (max-width: 1200px) {
+    .section-annotation { display: none; }
+  }
+
+  /* === PAGE CONTAINER === */
+  .page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  /* === UTILITY BAR === */
+  .utility-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 32px;
+    background: var(--gray-900);
+    color: var(--gray-300);
+    font-size: 12px;
+  }
+  .utility-bar .phone-top {
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+
+  /* === NAV === */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    border-bottom: var(--wireframe-border);
+    background: var(--white);
+  }
+  .logo-placeholder {
+    width: 180px;
+    height: 36px;
+    background: var(--gray-200);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 600;
+  }
+  .nav-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+  }
+  .btn-primary {
+    background: var(--gray-800);
+    color: #fff;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--gray-700);
+    border: 1.5px solid var(--gray-300);
+  }
+  .btn-accent {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-large {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--gray-800);
+    color: #fff;
+    padding: 56px 32px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.02) 8px,
+      rgba(255,255,255,0.02) 16px
+    );
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  .hero p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--gray-300);
+    margin-bottom: 24px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-form {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 28px 24px;
+    color: var(--gray-700);
+  }
+  .hero-form h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+  }
+  .hero-form .form-sub {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: 18px;
+  }
+  .form-field {
+    margin-bottom: 12px;
+  }
+  .form-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .form-field .input-placeholder {
+    width: 100%;
+    height: 38px;
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 5px;
+  }
+  .form-field .textarea-placeholder {
+    width: 100%;
+    height: 64px;
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 5px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* === TRUST BAR === */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 32px;
+    border-bottom: var(--wireframe-border);
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+  .trust-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+
+  /* === SERVICES SECTION === */
+  .section {
+    padding: 48px 32px;
+  }
+  .section-alt {
+    background: var(--gray-50);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section-heading {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+  }
+  .section-subheading {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-bottom: 32px;
+    max-width: 560px;
+  }
+  .section-center { text-align: center; }
+  .section-center .section-subheading { margin-left: auto; margin-right: auto; }
+
+  /* Service Cards */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .service-card {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 24px 20px;
+    background: var(--white);
+    transition: border-color 0.2s;
+  }
+  .service-card:hover { border-color: var(--gray-400); }
+  .service-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--gray-100);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .service-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+  .service-card p {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  /* === PROBLEM SYMPTOM SECTION === */
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .symptom-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--white);
+  }
+  .symptom-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .symptom-item h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+  .symptom-item p {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  /* === WHY BOYETTE === */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .why-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .why-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .why-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+  }
+  .why-item p {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  /* === TESTIMONIALS === */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .testimonial-card {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 24px 20px;
+    background: var(--white);
+  }
+  .testimonial-stars {
+    color: var(--gray-400);
+    font-size: 14px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  .testimonial-card blockquote {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+  .testimonial-card .attribution {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-800);
+  }
+  .testimonial-card .attr-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+  }
+
+  /* === COVERAGE MAP === */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .county-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .county-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+  .county-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 240px;
+    background: var(--gray-100);
+    border: var(--wireframe-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+
+  /* === EMERGENCY CTA === */
+  .emergency-banner {
+    background: var(--gray-800);
+    color: #fff;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .emergency-banner h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .emergency-banner p {
+    font-size: 14px;
+    color: var(--gray-300);
+    margin-bottom: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* === BOTTOM FORM === */
+  .bottom-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .bottom-form-content h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin-bottom: 12px;
+  }
+  .bottom-form-content p {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .phone-callout {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--gray-50);
+    border-radius: 8px;
+    border: 1.5px solid var(--gray-200);
+  }
+  .phone-callout-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .phone-callout .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--gray-500); }
+  .phone-callout .number { font-size: 18px; font-weight: 800; color: var(--gray-800); }
+
+  .bottom-form-box {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 28px 24px;
+  }
+  .bottom-form-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+  }
+  .bottom-form-box .form-sub {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: 18px;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--gray-900);
+    color: var(--gray-400);
+    padding: 32px 32px 20px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+  .footer-logo {
+    width: 140px;
+    height: 28px;
+    background: var(--gray-700);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  footer p { font-size: 12px; line-height: 1.6; }
+  footer h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--gray-300);
+    margin-bottom: 10px;
+  }
+  .footer-link {
+    font-size: 12px;
+    color: var(--gray-400);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .footer-bottom {
+    border-top: 1px solid var(--gray-700);
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--gray-500);
+  }
+
+  /* === NOTES SECTION === */
+  .wireframe-notes {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 28px 32px;
+    background: var(--white);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+  }
+  .wireframe-notes h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .wireframe-notes ul {
+    list-style: none;
+    padding: 0;
+  }
+  .wireframe-notes li {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.65;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    gap: 8px;
+  }
+  .wireframe-notes li:last-child { border-bottom: none; }
+  .note-label {
+    font-weight: 700;
+    color: var(--gray-800);
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-grid, .services-grid, .symptom-grid, .why-grid,
+    .testimonial-grid, .coverage-grid, .bottom-form-grid,
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .county-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wireframe-badge">Wireframe — For Review</div>
+
+<!-- === PRESENTATION HEADER === -->
+<div class="presentation-header">
+  <h1>Boyette Pump & Well — Residential PPC Landing Page</h1>
+  <div class="meta">
+    <span>Page: /residential-ppc/</span>
+    <span>Type: PPC Landing Page</span>
+    <span>Goal: Form + Call Conversions</span>
+    <span>Prepared by: The Purple Standard</span>
+  </div>
+</div>
+
+<!-- === PAGE START === -->
+<div style="padding: 32px 0; margin-left: 120px; margin-right: 40px;">
+
+  <div class="page-container">
+
+    <!-- UTILITY BAR -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Utility Bar</span>
+      <div class="utility-bar">
+        <span>Serving Tampa Bay &amp; Surrounding Counties</span>
+        <span class="phone-top">📞 (813) 363-9025</span>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Sticky Nav</span>
+      <nav>
+        <div class="logo-placeholder">Boyette Pump & Well</div>
+        <div style="font-size: 13px; font-weight: 600; color: var(--gray-600); letter-spacing: 0.3px;">Water Done Right.</div>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Hero</span>
+      <div class="hero">
+        <div style="max-width: 620px;">
+            <h1>Tampa Bay's Trusted Team for Home Well &amp; Water Systems</h1>
+            <p>From pump installation and pressure tanks to water treatment and emergency repair, Boyette services your entire residential water system.</p>
+            <div style="margin-bottom: 28px;">
+              <p style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px;">Water Done Right.</p>
+              <p style="font-size: 15px; font-weight: 800; color: #fff;">Powered By The Purple Standard.</p>
+            </div>
+            <div class="hero-ctas">
+              <a class="btn btn-outline btn-large" style="border-color: rgba(255,255,255,0.3); color: #fff;" href="#">📞 Call (813) 363-9025</a>
+              <a class="btn btn-accent btn-large" href="#">I'm Having a Pump &amp; Well Emergency</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Trust Bar</span>
+      <div class="trust-bar" style="flex-wrap: nowrap; gap: 24px;">
+        <div class="trust-item"><div class="trust-icon">✓</div> Licensed &amp; Insured</div>
+        <div class="trust-item"><div class="trust-icon">🔄</div> Monthly Maintenance Plan</div>
+        <div class="trust-item"><div class="trust-icon">⚡</div> 24-Hour Emergency Service</div>
+        <div class="trust-item"><div class="trust-icon">🏠</div> Residential Specialists</div>
+      </div>
+    </div>
+
+    <!-- RESIDENTIAL SERVICES -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Quote Form</span>
+      <div class="section section-alt" style="padding: 40px 32px;">
+        <div style="max-width: 560px; margin: 0 auto;">
+          <div class="hero-form" style="border: 1.5px solid var(--gray-200);">
+            <h3>What's Wrong With Your System?</h3>
+
+            <!-- Emergency Toggle -->
+            <div style="margin-bottom: 18px; padding: 14px 16px; background: var(--gray-100); border-radius: 6px; border: 1.5px solid var(--gray-200);">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <div style="width: 36px; height: 20px; background: var(--gray-300); border-radius: 10px; position: relative; flex-shrink: 0;">
+                  <div style="width: 16px; height: 16px; background: var(--white); border-radius: 50%; position: absolute; top: 2px; left: 2px;"></div>
+                </div>
+                <span style="font-size: 12px; font-weight: 700; color: var(--gray-800);">I am experiencing an emergency and need Boyette to contact me ASAP</span>
+              </div>
+              <div style="font-size: 11px; color: var(--gray-500); padding-left: 46px; line-height: 1.5; font-style: italic;">
+                ↳ When toggled: "Fill out the form here and our team will contact you ASAP."
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Name *</label>
+              <div class="input-placeholder"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Phone *</label>
+                <div class="input-placeholder"></div>
+              </div>
+              <div class="form-field">
+                <label>Email *</label>
+                <div class="input-placeholder"></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>What's Wrong With Your Water System? *</label>
+              <div class="textarea-placeholder"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Zip Code *</label>
+                <div class="input-placeholder"></div>
+              </div>
+              <div class="form-field">
+                <label>How Did You Hear About Us?</label>
+                <div class="input-placeholder"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%; justify-content: center; margin-top: 6px; padding: 12px;">Submit Request →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESIDENTIAL SERVICES -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Services</span>
+      <div class="section section-center">
+        <div class="section-label">Residential Services</div>
+        <h2 class="section-heading">From the Pump to the Tap — We Handle It All</h2>
+        <p class="section-subheading">Complete well and water system services for Tampa Bay homeowners. One team, one call.</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Well Pump Install &amp; Repair</h4>
+            <p>Submersible, jet, and booster pump installation, replacement, diagnostics, and emergency repair.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Pressure Tanks &amp; Systems</h4>
+            <p>Pressure tank replacement, bladder tanks, constant pressure systems, and pressure switch repair.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Water Treatment &amp; Filtration</h4>
+            <p>Water softeners, whole-house filtration, iron &amp; sulfur removal, reverse osmosis, and hydrogen peroxide treatment.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Well Diagnostics &amp; Inspections</h4>
+            <p>Water quality analysis, flow rate testing, real estate inspections, and full system diagnostics.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Maintenance &amp; Repair</h4>
+            <p>Well sanitizing, pipe repair, sediment removal, electrical troubleshooting, and leak detection.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">⬡</div>
+            <h4>Emergency Services</h4>
+            <p>No water, pump failure, low pressure, ruptured tanks, and electrical failures. We move fast.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM/SYMPTOM SECTION -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Symptom Match</span>
+      <div class="section section-alt">
+        <div class="section-label">Sound Familiar?</div>
+        <h2 class="section-heading">Common Issues We Fix Every Day</h2>
+        <p class="section-subheading">If you're experiencing any of these, give us a call. These are the problems we solve most for Tampa Bay homeowners.</p>
+
+        <div class="symptom-grid">
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>No Water Coming From the Tap</h5>
+              <p>Could be a failed pump, tripped breaker, or pressure switch. We diagnose and fix same-day.</p>
+            </div>
+          </div>
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>Low or Fluctuating Water Pressure</h5>
+              <p>Often a pressure tank, waterlogged bladder, or pump issue. We'll pinpoint it fast.</p>
+            </div>
+          </div>
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>Pump Running Constantly or Short Cycling</h5>
+              <p>Usually a pressure tank or switch failure. Left unchecked, it burns out the pump.</p>
+            </div>
+          </div>
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>Rotten Egg Smell or Discolored Water</h5>
+              <p>Sulfur, iron, or bacteria in your water. We test and install the right treatment system.</p>
+            </div>
+          </div>
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>Staining on Fixtures &amp; Laundry</h5>
+              <p>Iron or mineral content in your water. A filtration or softener system resolves this.</p>
+            </div>
+          </div>
+          <div class="symptom-item">
+            <div class="symptom-check">✓</div>
+            <div>
+              <h5>Noisy or Clicking Pump</h5>
+              <p>Mechanical failure or electrical issue. We troubleshoot the full system — pump, motor, and controls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAINTENANCE PLAN -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Maintenance Plan</span>
+      <div class="section section-center" style="padding: 44px 32px;">
+        <div class="section-label">Preventative Care</div>
+        <h2 class="section-heading">Interested in Our Monthly Maintenance Plan?</h2>
+        <p class="section-subheading">Keep your system running right year-round with scheduled maintenance, priority service, and peace of mind.</p>
+
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
+          <!-- Monthly Option -->
+          <div style="border: 1.5px solid var(--gray-200); border-radius: 8px; padding: 28px 32px; background: var(--white); min-width: 240px; text-align: center;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-500); margin-bottom: 10px;">Monthly</div>
+            <div style="font-size: 36px; font-weight: 800; color: var(--gray-800); line-height: 1;">$39<span style="font-size: 20px;">.99</span></div>
+            <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">/month · 12-month contract</div>
+            <div style="font-size: 12px; color: var(--gray-400); margin-top: 8px;">$479.88 /year</div>
+          </div>
+          <!-- Annual Option -->
+          <div style="border: 2px solid var(--gray-800); border-radius: 8px; padding: 28px 32px; background: var(--white); min-width: 240px; text-align: center; position: relative;">
+            <div style="position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--gray-800); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 12px; border-radius: 10px; letter-spacing: 0.5px; text-transform: uppercase;">Save ~$30</div>
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-500); margin-bottom: 10px;">Pay in Full</div>
+            <div style="font-size: 36px; font-weight: 800; color: var(--gray-800); line-height: 1;">$449<span style="font-size: 20px;">.99</span></div>
+            <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">/year · one-time payment</div>
+            <div style="font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 8px;">Best Value</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 28px;">
+        <a class="btn btn-primary btn-large" href="tel:8133639025">📞 Call (813) 363-9025 to Get Started</a>
+      </div>
+    </div>
+
+    <!-- WHY BOYETTE -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Differentiators</span>
+      <div class="section">
+        <div class="section-label">Why Boyette Pump &amp; Well</div>
+        <h2 class="section-heading">What Sets Us Apart</h2>
+        <p class="section-subheading">Most companies stop at the pump. We service your entire water chain — source, pressure, and treatment — under one roof.</p>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🔗</div>
+            <div>
+              <h4>Complete System Service</h4>
+              <p>Pump, pressure, and treatment in one call. No need to juggle multiple contractors for your well system.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🧪</div>
+            <div>
+              <h4>Florida Water Expertise</h4>
+              <p>We know Florida's aquifer, water chemistry, and code requirements — built specifically for the challenges here.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🧬</div>
+            <div>
+              <h4>Treatment Grounded in Science</h4>
+              <p>Hydrogen peroxide-based bacterial treatment — more effective and cleaner than UV in most Florida applications.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <div>
+              <h4>Fast Emergency Response</h4>
+              <p>No-water calls, pump failures, ruptured tanks. We respond quickly across Tampa Bay — because water can't wait.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Social Proof</span>
+      <div class="section section-alt section-center">
+        <div class="section-label">Reviews</div>
+        <h2 class="section-heading">What Tampa Bay Homeowners Say</h2>
+        <p class="section-subheading">Real feedback from residential customers.</p>
+
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+            <blockquote>"Placeholder testimonial text — real customer review about residential pump service, responsiveness, and quality of work."</blockquote>
+            <div class="attribution">Customer Name</div>
+            <div class="attr-sub">Hillsborough County Homeowner</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+            <blockquote>"Placeholder testimonial text — real customer review about water treatment installation and the difference in water quality."</blockquote>
+            <div class="attribution">Customer Name</div>
+            <div class="attr-sub">Pasco County Homeowner</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <div style="display: inline-flex; gap: 16px; align-items: center; padding: 12px 20px; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 8px;">
+            <div style="font-size: 12px; color: var(--gray-500); font-weight: 600;">Google Reviews Badge Placeholder</div>
+            <div style="width: 80px; height: 24px; background: var(--gray-200); border-radius: 4px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE COVERAGE -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Coverage</span>
+      <div class="section">
+        <div class="section-label">Service Area</div>
+        <h2 class="section-heading">Serving Tampa Bay &amp; Surrounding Counties</h2>
+        <p class="section-subheading">If you're on well water in our service area, we can be there.</p>
+
+        <div class="coverage-grid">
+          <div>
+            <div class="county-list">
+              <div class="county-item"><div class="county-dot"></div> Hillsborough County</div>
+              <div class="county-item"><div class="county-dot"></div> Pasco County</div>
+              <div class="county-item"><div class="county-dot"></div> Pinellas County</div>
+              <div class="county-item"><div class="county-dot"></div> Polk County</div>
+              <div class="county-item"><div class="county-dot"></div> Hernando County</div>
+              <div class="county-item"><div class="county-dot"></div> Citrus County</div>
+              <div class="county-item"><div class="county-dot"></div> Levy County</div>
+              <div class="county-item"><div class="county-dot"></div> Marion County</div>
+            </div>
+          </div>
+          <div class="map-placeholder">Service area map or embedded graphic</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMERGENCY CTA -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Emergency CTA</span>
+      <div class="emergency-banner">
+        <h2>No Water? Pump Failure? We're On It.</h2>
+        <p>Whether it's a dead pump, ruptured tank, or zero pressure — our emergency team is available across Tampa Bay.</p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a class="btn btn-outline btn-large" style="border-color: rgba(255,255,255,0.3); color: #fff;" href="#">📞 (813) 363-9025</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM FORM SECTION -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Bottom Form CTA</span>
+      <div class="section">
+        <div class="bottom-form-grid">
+          <div class="bottom-form-content">
+            <h2>Ready to Fix Your Water?</h2>
+            <p>Tell us about your property, your system, and what's going on. A member of our team will follow up to discuss options and prepare a quote.</p>
+            <div class="phone-callout">
+              <div class="phone-callout-icon">📞</div>
+              <div>
+                <div class="label">Call for a Quote</div>
+                <div class="number">(813) 363-9025</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-form-box">
+            <h3>Request a Quote</h3>
+            <p class="form-sub">We'll get back to you within one business day.</p>
+            <div class="form-field">
+              <label>Name *</label>
+              <div class="input-placeholder"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Phone *</label>
+                <div class="input-placeholder"></div>
+              </div>
+              <div class="form-field">
+                <label>Email *</label>
+                <div class="input-placeholder"></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Describe the Issue *</label>
+              <div class="textarea-placeholder"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Zip Code *</label>
+                <div class="input-placeholder"></div>
+              </div>
+              <div class="form-field">
+                <label>How'd You Hear About Us?</label>
+                <div class="input-placeholder"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%; justify-content: center; margin-top: 6px; padding: 12px;">Submit Request →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="section-wrapper">
+      <span class="section-annotation">Footer</span>
+      <footer>
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo"></div>
+            <p>End-to-end water system services for Tampa Bay and surrounding counties.</p>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <span class="footer-link">📞 (813) 363-9025</span>
+            <span class="footer-link">✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97f8f1f1fef4f2d7f5f8eef2e3e3f2e7e2fae7f6f9f3e0f2fbfbb9f4f8fa">[email&#160;protected]</a></span>
+          </div>
+          <div>
+            <h5>Service Area</h5>
+            <span class="footer-link">Tampa Bay &amp; surrounding counties</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Boyette Pump & Well · Privacy Policy · Terms of Service</span>
+          <span>Powered by The Purple Standard</span>
+        </div>
+      </footer>
+    </div>
+
+  </div><!-- /page-container -->
+
+  <!-- WIREFRAME NOTES -->
+  <div class="wireframe-notes">
+    <h3>📋 Wireframe Notes — Residential PPC Page</h3>
+    <ul>
+      <li><span class="note-label">Conversion Goals:</span> Dual-path — form submission + phone call. Phone number is persistent in utility bar, nav, hero, emergency CTA, and bottom form section.</li>
+      <li><span class="note-label">Hero Strategy:</span> Clean hero with single headline, supporting copy, and branded sign-off ("Water Done Right. / Powered By The Purple Standard."). Two CTAs: direct phone call and emergency click-to-call. No form in hero — keeps it clean and focused.</li>
+      <li><span class="note-label">Form Placement:</span> Primary form sits just below the trust bar (triggered by "I'm having an emergency" CTA). Second form at page bottom for visitors who scroll through trust-building content first. Both serve the dual conversion goal.</li>
+      <li><span class="note-label">Nav:</span> Logo placeholder + "Water Done Right." tagline. No buttons or links — PPC discipline, zero traffic leakage.</li>
+      <li><span class="note-label">Services Scope:</span> Focused on 6 residential-relevant categories derived from the sitemap: Pump Systems, Pressure/Tanks, Water Treatment, Diagnostics/Inspections, Maintenance/Repair, and Emergency. Excludes commercial, agricultural, irrigation, and golf course services.</li>
+      <li><span class="note-label">Symptom Section:</span> Added based on competitive research — top Tampa competitors lead with problem-based messaging (no water, low pressure, bad smell). This section matches PPC search intent and captures visitors who don't know the technical term for their issue.</li>
+      <li><span class="note-label">Trust Bar:</span> Competitors heavily feature licensing, reviews, and emergency availability. Recommend adding Google Reviews widget and any trade certifications (FGWA, SWFWMD).</li>
+      <li><span class="note-label">Dual Form Placement:</span> Form appears below trust bar (for emergency/high-intent visitors) and at bottom of page (after trust-building content) to capture visitors at both stages of consideration.</li>
+      <li><span class="note-label">Emergency CTA:</span> Dedicated mid-page dark banner. Emergency pump service is a high-intent, high-value segment per the sitemap. Prominent placement captures urgent visitors.</li>
+      <li><span class="note-label">Dual Form Placement:</span> Form appears in hero (above fold) and bottom of page (after trust-building co
