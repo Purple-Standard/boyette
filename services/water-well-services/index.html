@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOY — Well Services Hub — Wireframe v1.0</title>
+<style>
+  /* =========================================
+     WIREFRAME — grayscale, no brand decisions
+     Visual identity pending Kahawai
+     ========================================= */
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #222;
+    background: #e8e8e8;
+    line-height: 1.55;
+  }
+
+  /* ---- Wireframe control bar (not part of the page) ---- */
+  .wf-controls {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    border-bottom: 2px solid #333;
+  }
+  .wf-controls .wf-title {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .wf-controls .wf-title span {
+    color: #999;
+    font-weight: 400;
+    margin-left: 12px;
+  }
+  .wf-controls .wf-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .wf-controls button {
+    background: #333;
+    color: #ccc;
+    border: 1px solid #555;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .wf-controls button:hover { background: #444; color: #fff; }
+  .wf-controls button.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+  .wf-width-indicator {
+    font-variant-numeric: tabular-nums;
+    color: #888;
+    font-size: 11px;
+    margin-right: 8px;
+  }
+
+  /* ---- Page wrapper (container query root) ---- */
+  .page-wrapper {
+    container-type: inline-size;
+    margin: 0 auto;
+    background: #fff;
+    transition: max-width 0.3s ease, box-shadow 0.3s ease;
+  }
+  .page-wrapper.mobile-sim {
+    max-width: 380px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.15);
+    margin: 20px auto;
+  }
+
+  /* ---- Annotations (wireframe-only) ---- */
+  .annotation {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    border-left: 2px solid #bbb;
+    padding-left: 8px;
+  }
+
+  /* ---- Placeholder boxes ---- */
+  .placeholder {
+    background: repeating-linear-gradient(
+      45deg,
+      #f0f0f0,
+      #f0f0f0 10px,
+      #e8e8e8 10px,
+      #e8e8e8 20px
+    );
+    border: 1px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+  }
+
+  .placeholder-inline {
+    display: inline-block;
+    background: #f0f0f0;
+    border: 1px dashed #aaa;
+    padding: 2px 8px;
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  /* ---- Site Header ---- */
+  .site-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 16px 40px;
+  }
+  .site-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .site-logo {
+    width: 140px;
+    height: 40px;
+  }
+  .site-nav {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: #555;
+  }
+  .site-nav-mobile {
+    display: none;
+    width: 32px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .site-nav-mobile span {
+    display: block;
+    height: 3px;
+    background: #555;
+    width: 100%;
+  }
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .phone-placeholder {
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* ---- Section base ---- */
+  section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section.alt-bg {
+    background: #f7f7f7;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .alt-bg .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  h1, h2, h3 {
+    font-family: inherit;
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+  }
+  h1 { font-size: 44px; letter-spacing: -0.01em; }
+  h2 { font-size: 30px; margin-bottom: 20px; }
+  h3 { font-size: 20px; }
+
+  p { margin: 0 0 16px 0; font-size: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---- CTAs ---- */
+  .btn-primary {
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #222;
+    border-radius: 2px;
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #222;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #222;
+    border-radius: 2px;
+  }
+  .sub-page-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #222;
+    padding-bottom: 2px;
+  }
+  .sub-page-link + .sub-page-link {
+    margin-left: 24px;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .hero-content .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 16px;
+  }
+  .hero-content p {
+    font-size: 17px;
+    color: #444;
+    margin-bottom: 28px;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-cta-row .phone-placeholder { font-size: 16px; }
+  .hero-visual {
+    aspect-ratio: 4 / 3;
+    min-height: 320px;
+  }
+
+  /* ---- Orientation section with 2 callout cards ---- */
+  .orientation-intro {
+    max-width: 800px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    color: #333;
+  }
+  .callout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .callout-card {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .callout-card .callout-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+  }
+  .callout-card h3 {
+    margin-bottom: 12px;
+  }
+  .callout-card p {
+    color: #444;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  /* ---- Service section (2-col: text left, icon right) ---- */
+  .service-section {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .service-section.alt {
+    background: #f7f7f7;
+    max-width: none;
+    padding: 80px 0;
+  }
+  .service-section.alt > .service-inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .service-content p {
+    color: #333;
+  }
+  .service-visual {
+    aspect-ratio: 1 / 1;
+    max-width: 320px;
+  }
+
+  /* ---- Additional Services (3-col grid) ---- */
+  .additional-intro {
+    max-width: 800px;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 16px;
+  }
+  .additional-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid #d0d0d0;
+    border-left: 1px solid #d0d0d0;
+  }
+  .additional-item {
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 24px 20px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .additional-item .arrow {
+    color: #888;
+    font-size: 18px;
+  }
+
+  /* ---- FAQ accordion (native details/summary) ---- */
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  details.faq {
+    border-bottom: 1px solid #d0d0d0;
+  }
+  details.faq:first-of-type {
+    border-top: 1px solid #d0d0d0;
+  }
+  details.faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 24px 40px 24px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    position: relative;
+    user-select: none;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 300;
+    color: #555;
+    transition: transform 0.2s;
+  }
+  details.faq[open] summary::after {
+    content: "−";
+  }
+  details.faq .faq-answer {
+    padding: 0 40px 24px 0;
+    color: #333;
+    font-size: 16px;
+  }
+
+  /* ---- Serving Tampa Bay and Ocala ---- */
+  .service-area {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .service-area-visual {
+    aspect-ratio: 4 / 3;
+    min-height: 300px;
+  }
+
+  /* ---- Closing CTA (full-width) ---- */
+  .closing-cta {
+    background: #222;
+    color: #fff;
+    padding: 80px 40px;
+    text-align: center;
+    max-width: none;
+  }
+  .closing-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .closing-cta h2 { color: #fff; }
+  .closing-cta p { color: #ccc; font-size: 17px; margin-bottom: 32px; }
+  .closing-cta .annotation {
+    color: #888;
+    border-left-color: #555;
+  }
+  .closing-cta .btn-primary {
+    background: #fff;
+    color: #222;
+    border-color: #fff;
+    margin: 0 8px 8px 8px;
+  }
+  .closing-cta .btn-secondary {
+    color: #fff;
+    border-color: #fff;
+    margin: 0 8px 8px 8px;
+  }
+  .closing-cta .placeholder-line {
+    background: #333;
+    border: 1px dashed #666;
+    color: #999;
+    padding: 12px 16px;
+    margin: 24px 0;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background: #111;
+    color: #aaa;
+    padding: 48px 40px 32px 40px;
+    font-size: 14px;
+  }
+  .site-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .site-footer h4 {
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+  }
+  .site-footer .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .site-footer .footer-col li {
+    margin-bottom: 8px;
+  }
+  .site-footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+  }
+
+  /* =========================================
+     CONTAINER QUERIES — mobile breakpoint
+     Triggers for real mobile devices AND
+     mobile-sim class on desktop
+     ========================================= */
+  @container (max-width: 760px) {
+    .site-header { padding: 14px 16px; }
+    .site-nav { display: none; }
+    .site-nav-mobile { display: flex; }
+    .header-cta .phone-placeholder { font-size: 13px; }
+
+    section,
+    .service-section,
+    .service-section.alt > .service-inner,
+    .alt-bg .section-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    section { padding-top: 48px; padding-bottom: 48px; }
+    .service-section { padding-top: 48px; padding-bottom: 48px; gap: 32px; }
+    .service-section.alt { padding: 48px 0; }
+    .service-section.alt > .service-inner { padding-top: 0; padding-bottom: 0; gap: 32px; }
+    .closing-cta { padding: 48px 16px; }
+    .site-footer { padding: 32px 16px 24px 16px; }
+
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 18px; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .hero-visual {
+      order: -1;
+      min-height: 200px;
+    }
+
+    .callout-grid { grid-template-columns: 1fr; }
+
+    .service-section,
+    .service-section.alt > .service-inner {
+      grid-template-columns: 1fr;
+    }
+    .service-visual {
+      order: -1;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .additional-grid { grid-template-columns: 1fr; }
+
+    .service-area {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .service-area-visual {
+      order: -1;
+      min-height: 200px;
+    }
+
+    .site-footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .site-footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sub-page-link + .sub-page-link {
+      margin-left: 0;
+      margin-top: 8px;
+      display: block;
+    }
+
+    details.faq summary { font-size: 16px; padding: 20px 40px 20px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== WIREFRAME CONTROL BAR (NOT PART OF THE PAGE) ====== -->
+<div class="wf-controls">
+  <div class="wf-title">BOY Well Services Hub <span>Wireframe v1.0 — grayscale, brand-neutral</span></div>
+  <div class="wf-buttons">
+    <span class="wf-width-indicator" id="widthIndicator">—</span>
+    <button id="btnDesktop" class="active" onclick="setView('desktop')">Desktop</button>
+    <button id="btnMobile" onclick="setView('mobile')">Mobile</button>
+  </div>
+</div>
+
+<!-- ====== PAGE ====== -->
+<div class="page-wrapper" id="pageWrapper">
+
+  <!-- =========================================
+       SITE HEADER (stub — full header pending Kahawai)
+       ========================================= -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-logo placeholder">LOGO</div>
+      <nav class="site-nav">
+        <span>Services</span>
+        <span>Service Areas</span>
+        <span>FAQ</span>
+        <span>Contact</span>
+      </nav>
+      <div class="site-nav-mobile"><span></span><span></span><span></span></div>
+      <div class="header-cta">
+        <span class="phone-placeholder">[PHONE]</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================
+       HERO
+       ========================================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="annotation">H1 · Intro copy · Primary CTA + phone</span>
+      <div class="eyebrow">Water Well Services</div>
+      <h1>Water Well Services in Tampa Bay</h1>
+      <p>A private well is a system most people don't think about until the day it stops working. Boyette Pump &amp; Well covers the full range of well service work across Tampa Bay and Ocala. That includes diagnostics, pressure tanks, pressure switches, pipe repair, pump maintenance, water quality, and permits. We also work with farms, irrigation operations, and light commercial properties. If you aren't sure where to start, scroll to whichever section matches what you're seeing, or just call us.</p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn-primary">Contact Us</a>
+        <span class="phone-placeholder">[PHONE]</span>
+      </div>
+    </div>
+    <div class="hero-visual placeholder">IMAGE<br>Hero visual<br>(wellhead, technician, pump install — TBD with Kahawai)</div>
+  </section>
+
+  <!-- =========================================
+       H2 · Everything Your Well System Needs, In One Place
+       Orientation section with 2 callout cards
+       ========================================= -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <span class="annotation">H2 Orientation · Intro paragraph · 2 callout cards (side-by-side desktop, stacked mobile)</span>
+      <h2>Everything Your Well System Needs, In One Place</h2>
+      <p class="orientation-intro">Most homeowners find us when something has already gone wrong. Two situations show up that don't fit that pattern, and they're worth naming before we get into the rest of the services.</p>
+
+      <div class="callout-grid">
+        <div class="callout-card">
+          <div class="callout-icon placeholder">ICON</div>
+          <h3>Real Estate Well Inspections</h3>
+          <p>If you're buying, selling, or representing a property with a well, the transaction usually requires a documented inspection before closing. We work with buyers, sellers, and agents across Tampa Bay and Ocala. An inspection tests flow rate, water quality, and the overall condition of the system, and it produces the paperwork the closing needs.</p>
+          <a href="#" class="sub-page-link">Explore Real Estate Well Inspections →</a>
+        </div>
+        <div class="callout-card">
+          <div class="callout-icon placeholder">ICON</div>
+          <h3>Well Sanitizing</h3>
+          <p>If your water has tested positive for bacteria, or if you've had flooding, a pipe break, or recent repair work on the well itself, the system needs to be sanitized before the water is safe to use again. It's triggered by an event, not a schedule.</p>
+          <a href="#" class="sub-page-link">Explore Well Sanitizing →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Well Diagnostics
+       2-col: text left, visual right
+       ========================================= -->
+  <section class="service-section">
+    <div class="service-content">
+      <span class="annotation">H2 Service · 2-col layout · text left, visual right</span>
+      <h2>Well Diagnostics</h2>
+      <p>Diagnostics is the work we do before recommending any repair. If the water has stopped, the pressure is dropping, or the pump won't shut off, something is wrong, and the right move is to figure out what it is before buying parts. A diagnostic visit pressure-tests the system, checks the electrical side, and inspects the pressure switch and the pump itself. If the situation calls for it, we also run flow rate or static water level tests. The idea is to find the actual problem rather than guess and replace. When we're done, we explain what we found and what it will take to fix it.</p>
+      <a href="#" class="sub-page-link">Explore Well Diagnostics →</a>
+    </div>
+    <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+  </section>
+
+  <!-- =========================================
+       H2 · Pressure Tank and Pressure Switch Services
+       2-col, alt background for visual rhythm
+       ========================================= -->
+  <section class="service-section alt">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="annotation">H2 Service · 2-col · alt background · 2 CTAs</span>
+        <h2>Pressure Tank and Pressure Switch Services</h2>
+        <p>Your pressure tank stores water under pressure so the pump doesn't have to cycle every time someone opens a faucet. The pressure switch is what tells the pump to turn on and off. When either one fails, the symptoms tend to look like pump problems. Short cycling. Pressure dropping when you run water. A pump that stays on constantly, or one that won't start at all. We service and replace both.</p>
+        <p>One note on terminology. Pressure tanks and bladder tanks are not the same component, even though homeowners sometimes use the terms interchangeably. If you already know you need a bladder tank replaced, that's listed separately in additional services below.</p>
+        <div>
+          <a href="#" class="sub-page-link">Explore Pressure Tank Services →</a>
+          <a href="#" class="sub-page-link">Explore Pressure Switch Services →</a>
+        </div>
+      </div>
+      <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Well Pipe Repair
+       ========================================= -->
+  <section class="service-section">
+    <div class="service-content">
+      <span class="annotation">H2 Service · 2-col · includes SME flag</span>
+      <h2>Well Pipe Repair</h2>
+      <p>A failing pipe in a well system usually shows up in the water or the pressure. You might notice sediment where there wasn't any, pressure that keeps dropping, or a pump that keeps running without ever building up pressure. We repair the pipe work in the well equipment itself. That includes the drop pipe inside the well casing, the pitless adapter (the fitting that takes the water line from the well over to the house), and the above-ground connections at the pressure tank.</p>
+      <p>What we don't do is household plumbing. If the leak is inside the house, you need a plumber. In Florida, most well pipe failures come down to corrosion or mineral buildup, and both of those take years to become obvious before you notice a symptom.</p>
+      <a href="#" class="sub-page-link">Explore Well Pipe Repair →</a>
+    </div>
+    <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+  </section>
+
+  <!-- =========================================
+       H2 · Well Pump Maintenance
+       ========================================= -->
+  <section class="service-section alt">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="annotation">H2 Service · 2-col · alt background · includes in-copy PLACEHOLDER line</span>
+        <h2>Well Pump Maintenance</h2>
+        <p>Pumps rarely fail in one dramatic moment. What usually happens is gradual loss of efficiency, a small electrical fault, or wear on the mechanical parts that compounds over months until the system finally gives out. Regular maintenance catches those issues while they're still small and cheap to fix.</p>
+        <p class="placeholder-inline" style="display: block; padding: 12px 16px; margin: 16px 0;">[PLACEHOLDER — confirm specifics with Danny: what a standard maintenance visit typically covers]</p>
+        <p>If what you actually need is pump repair, replacement, or motor work, that lives on our Pump Services hub.</p>
+        <a href="#" class="sub-page-link">Explore Well Pump Maintenance →</a>
+      </div>
+      <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Leak Detection
+       ========================================= -->
+  <section class="service-section">
+    <div class="service-content">
+      <span class="annotation">H2 Service · 2-col · equipment-only scope guardrail</span>
+      <h2>Leak Detection</h2>
+      <p>A leak in your well system is a different animal from a leak in the plumbing inside your house. Well-system leaks happen at the wellhead, at the pump housing, or around the fittings on the pressure tank. You'd usually notice them as dropping pressure, a pump that keeps running when nothing's being used, or a wet area of ground where there shouldn't be one.</p>
+      <p>We handle the equipment side. Wellhead, pump, tank, and the piping between them. Anything inside the house is a plumber's job. When the leak is at the well, we can find it and fix it.</p>
+      <a href="#" class="sub-page-link">Explore Leak Detection →</a>
+    </div>
+    <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+  </section>
+
+  <!-- =========================================
+       H2 · Water Quality Analysis
+       ========================================= -->
+  <section class="service-section alt">
+    <div class="service-inner">
+      <div class="service-content">
+        <span class="annotation">H2 Service · 2-col · alt bg · includes in-copy PLACEHOLDER line</span>
+        <h2>Water Quality Analysis</h2>
+        <p>On a private well, nobody is running water quality tests for you. That's the homeowner's job, and most homeowners don't realize it until they hit a situation that makes them start wondering what's actually in their water.</p>
+        <p>A water quality analysis looks at bacterial content, minerals like iron and calcium, and chemical indicators that might point to contamination from nearby land use, septic proximity, or runoff. We coordinate the testing through a certified lab and sit down with you afterward to go through the results together.</p>
+        <p class="placeholder-inline" style="display: block; padding: 12px 16px; margin: 16px 0;">[PLACEHOLDER — confirm with Danny: name the third-party lab or process, or keep as "certified analysis" until confirmed]</p>
+        <p>If the results show something that needs treatment, our Water Treatment hub covers the options, including filtration, water softening, and hydrogen peroxide for bacterial issues.</p>
+        <a href="#" class="sub-page-link">Explore Water Quality Analysis →</a>
+      </div>
+      <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Well Permits and Compliance
+       ========================================= -->
+  <section class="service-section">
+    <div class="service-content">
+      <span class="annotation">H2 Service · 2-col · includes 2 in-copy PLACEHOLDER lines</span>
+      <h2>Well Permits and Compliance</h2>
+      <p>Some well work in Florida requires a permit. The process runs through the state and the local water management district, and filing it wrong can hold up the project or create compliance headaches later. We handle the filing as part of the work.</p>
+      <p class="placeholder-inline" style="display: block; padding: 12px 16px; margin: 16px 0;">[PLACEHOLDER — confirm with Danny: what specifically triggers a permit requirement in Florida under Boyette's scope?]</p>
+      <p class="placeholder-inline" style="display: block; padding: 12px 16px; margin: 16px 0;">[PLACEHOLDER — confirm with Danny: any specific county or municipal requirements in Tampa Bay / Ocala service area worth naming?]</p>
+      <p>You don't need to learn the permit rules yourself. We manage it so the work gets approved and stays compliant.</p>
+      <a href="#" class="sub-page-link">Explore Well Permits →</a>
+    </div>
+    <div class="service-visual placeholder">ICON<br>or<br>spot illustration</div>
+  </section>
+
+  <!-- =========================================
+       H2 · Additional Well Services
+       3-col link grid (desktop) / 1-col (mobile)
+       ========================================= -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <span class="annotation">H2 · Intro sentence · 3-col link grid desktop · 1-col mobile</span>
+      <h2>Additional Well Services</h2>
+      <p class="additional-intro">Bladder tank replacement is its own service, separate from pressure tank work. If you already know that's what you need, we handle it directly. Everything else in this list has its own sub-page with the details:</p>
+      <div class="additional-grid">
+        <a href="#" class="additional-item">Bladder Tank Replacement <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Electrical Troubleshooting <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Sediment Removal <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Well Abandonment <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Flow Rate Testing <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Static Water Level Testing <span class="arrow">→</span></a>
+        <a href="#" class="additional-item">Site Inspections <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Well Service FAQs
+       Accordion (native details/summary)
+       ========================================= -->
+  <section>
+    <span class="annotation">H2 · FAQ accordion · native HTML details/summary · confirm component with Kahawai</span>
+    <h2 style="text-align: center;">Well Service FAQs</h2>
+    <div class="faq-list">
+
+      <details class="faq">
+        <summary>How do I know if my well pressure tank needs to be replaced?</summary>
+        <div class="faq-answer">Short cycling is the most common warning sign. If your pump kicks on every time someone runs a faucet instead of letting the tank handle small draws, the tank is likely losing its ability to hold pressure. Other signs include fluctuating water pressure at the tap, or a tank that feels heavy all over when you knock on it rather than hollow near the top. In Florida conditions, pressure tanks typically last ten to fifteen years. A diagnostic visit can tell you whether the tank is actually what's failing, or whether the problem is somewhere else in the system.</div>
+      </details>
+
+      <details class="faq">
+        <summary>What's the difference between well diagnostics and a well inspection?</summary>
+        <div class="faq-answer">Different services for different situations. Diagnostics is what happens when something is wrong with your system and you need to know what's causing it before spending money on parts. An inspection is a documented assessment, usually ordered during a real estate transaction, that tests the system end to end and produces the paperwork the closing needs. Diagnostics solves a problem. An inspection documents a condition.</div>
+      </details>
+
+      <details class="faq">
+        <summary>How do I know if my well pump needs to be repaired or fully replaced?</summary>
+        <div class="faq-answer">There isn't one answer. The age of the pump matters, the specific component that's failing matters, and the cost of parts relative to a new unit matters. A twenty-year-old pump with a dead motor is almost always better replaced. A five-year-old pump with a bad pressure switch is a cheap repair. We diagnose first and then lay out honest options, including what kind of lifespan you can expect from each path.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do I need a permit to have my well serviced or repaired in Florida?</summary>
+        <div class="faq-answer">Routine service and repair usually don't require a permit. Larger work <span class="placeholder-inline">[PLACEHOLDER — confirm with Danny: permit triggers]</span> typically does. When a permit is needed, we file it as part of the work.</div>
+      </details>
+
+      <details class="faq">
+        <summary>What contaminants are most common in Tampa Bay well water?</summary>
+        <div class="faq-answer">The usual suspects in this area are water hardness from calcium and magnesium, iron, and sulfur, which is what produces the rotten-egg smell some homeowners notice. Bacterial contamination shows up too, most often after flooding or after work has been done on the well itself. Some parts of the service area also see tannins from organic matter. Until you have an actual test, you're guessing. Once you have results, the fix depends on what the test finds. Softening handles hardness, filtration handles iron and sulfur, and bacterial issues need targeted treatment, which in our experience is usually hydrogen peroxide.</div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- =========================================
+       H2 · Serving Tampa Bay and Ocala
+       2-col with map placeholder
+       ========================================= -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <span class="annotation">H2 · 2-col · text left · map placeholder right · service area hub link pending Phase 4</span>
+      <div class="service-area">
+        <div>
+          <h2>Serving Tampa Bay and Ocala</h2>
+          <p>Our service area covers the Tampa Bay region and the Ocala area. Well conditions aren't uniform across that geography. Coastal properties see different water chemistry than properties further inland sitting on deeper aquifers, and what works on one well won't always be right for another. If you're not sure whether we reach your property, give us a call. City-specific service area pages are coming as we build out the site.</p>
+        </div>
+        <div class="service-area-visual placeholder">MAP<br>Service area coverage<br>(Tampa Bay + Ocala)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CLOSING CTA BLOCK
+       Full-width dark panel
+       ========================================= -->
+  <section class="closing-cta" style="max-width: none; padding-left: 40px; padding-right: 40px;">
+    <div class="closing-cta-inner">
+      <span class="annotation">Closing CTA block · no H2 · dark full-width panel · includes PLACEHOLDER</span>
+      <h2>Start with a Phone Call</h2>
+      <p>Most homeowners who end up calling us do it because something is off and they're not sure what it is. That's a fine place to start. Tell us what you're seeing and we'll tell you what we think it is, what it will take to fix, and whether it's urgent or can wait until next week.</p>
+      <div class="placeholder-line">[PLACEHOLDER — confirm with Danny: specific differentiator to anchor the close]</div>
+      <div style="margin-top: 24px;">
+        <a href="#" class="btn-primary">[PHONE]</a>
+        <a href="#" class="btn-secondary">Contact Form</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SITE FOOTER (stub — pending Kahawai)
+       ========================================= -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-col">
+        <div class="placeholder" style="width: 140px; height: 40px; margin-bottom: 16px;">LOGO</div>
+        <p style="color: #888; font-size: 13px;">Water well services for Tampa Bay and Ocala. Powered by The Purple Standard.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Pump Services</li>
+          <li>Well Services</li>
+          <li>Water Treatment</li>
+          <li>Irrigation</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li>Service Areas</li>
+          <li>FAQ</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>[PHONE]</li>
+          <li>[EMAIL]</li>
+          <li>[ADDRESS]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <div>© Boyette Pump &amp; Well · [YEAR]</div>
+      <div><span class="placeholder-inline" style="background: #222; color: #888; border-color: #444;">Privacy · Terms · Accessibility</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function setView(view) {
+    const wrapper = document.getElementById('pageWrapper');
+    const btnDesktop = document.getElementById('btnDesktop');
+    const btnMobile = document.getElementById('btnMobile');
+    if (view === 'mobile') {
+      wrapper.classList.add('mobile-sim');
+      btnMobile.classList.add('active');
+      btnDesktop.classList.remove('active');
+    } else {
+      wrapper.classList.remove('mobile-sim');
+      btnDesktop.classList.add('active');
+      btnMobile.classList.remove('active');
+    }
+    updateWidthIndicator();
+  }
+
+  function updateWidthIndicator() {
+    const wrapper = document.getElementById('pageWrapper');
+    const indicator = document.getElementById('widthIndicator');
+    const width = wrapper.offsetWidth;
+    const mode = width <= 760 ? 'mobile' : 'desktop';
+    indicator.textContent = width + 'px · ' + mode;
+  }
+
+  window.addEventListener('resize', updateWidthIndicator);
+  window.addEventListener('load', updateWidthIndicator);
+</script>
+
+</body>
+</html>
