@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Treatment Services for Well Water in Tampa Bay and Ocala | Boyette Pump &amp; Well</title>
+  <meta name="description" content="Water treatment services for residential and agricultural well systems across Tampa Bay and Ocala. Softening, filtration, iron and sulfur removal, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30;0,9..144,300..700,50;1,9..144,400..600,50&family=Figtree:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    /* =====================
+       DESIGN TOKENS
+       Interim palette — not final Kahawai brand
+       ===================== */
+    :root {
+      --bg: #FDFBF6;
+      --bg-soft: #F5EFE1;
+      --bg-card: #FFFFFF;
+      --bg-dark: #142026;
+      --ink: #1C1F22;
+      --ink-muted: #5A5D60;
+      --ink-subtle: #8B8C8E;
+      --primary: #1E5060;
+      --primary-hover: #153740;
+      --accent: #B8845A;
+      --accent-soft: #E8D5B7;
+      --border: #E8DFCC;
+      --border-soft: #F0E9D8;
+      --shadow-sm: 0 1px 2px rgba(28, 31, 34, 0.04);
+      --shadow-md: 0 4px 12px rgba(28, 31, 34, 0.06);
+      --shadow-lg: 0 12px 32px rgba(28, 31, 34, 0.08);
+      --max: 1200px;
+      --measure: 680px;
+    }
+
+    /* =====================
+       BASE
+       ===================== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Figtree', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', ui-serif, Georgia, serif;
+      font-variation-settings: 'SOFT' 30;
+      color: var(--ink);
+      line-height: 1.15;
+      margin: 0;
+    }
+    h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 400; letter-spacing: -0.015em; font-variation-settings: 'opsz' 144, 'SOFT' 30; }
+    h2 { font-size: clamp(1.85rem, 3.5vw, 2.5rem); font-weight: 400; letter-spacing: -0.01em; font-variation-settings: 'opsz' 72, 'SOFT' 30; }
+    h3 { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.005em; font-variation-settings: 'opsz' 36, 'SOFT' 30; }
+    h4 { font-size: 1.1rem; font-weight: 500; font-variation-settings: 'opsz' 24, 'SOFT' 30; }
+
+    p { margin: 0 0 1.1rem; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    a:hover { color: var(--primary-hover); }
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* =====================
+       HEADER (sticky)
+       ===================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 251, 246, 0.92);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .wordmark {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 24, 'SOFT' 50;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .wordmark span { color: var(--primary); }
+    .main-nav {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .main-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .main-nav a:hover { color: var(--primary); }
+    .main-nav a.active { color: var(--primary); }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .header-cta:hover { background: var(--primary-hover); color: #fff; }
+    .header-cta svg { width: 14px; height: 14px; }
+    @media (max-width: 900px) {
+      .main-nav { display: none; }
+    }
+    @media (max-width: 500px) {
+      .header-cta span.label { display: none; }
+      .header-cta { padding: 0.6rem; }
+    }
+
+    /* =====================
+       BREADCRUMBS
+       ===================== */
+    .breadcrumbs {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 0;
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+    .breadcrumbs a {
+      color: var(--ink-muted);
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { color: var(--primary); text-decoration: underline; }
+    .breadcrumbs .sep {
+      margin: 0 0.4rem;
+      color: var(--ink-subtle);
+    }
+
+    /* =====================
+       PAGE LAYOUT (TOC rail + content)
+       ===================== */
+    .page-layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 1100px) {
+      .page-layout {
+        grid-template-columns: 200px 1fr;
+        gap: 3rem;
+      }
+    }
+
+    /* TOC rail (desktop only) */
+    .toc-rail {
+      display: none;
+    }
+    @media (min-width: 1100px) {
+      .toc-rail {
+        display: block;
+        position: sticky;
+        top: 6rem;
+        align-self: start;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+        padding-top: 2.5rem;
+      }
+    }
+    .toc-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-subtle);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 1px solid var(--border);
+    }
+    .toc-list li { margin: 0; }
+    .toc-list a {
+      display: block;
+      padding: 0.5rem 0 0.5rem 1rem;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .toc-list a:hover { color: var(--ink); }
+    .toc-list a.is-active {
+      color: var(--primary);
+      border-left-color: var(--primary);
+    }
+
+    /* Content article */
+    .page-content { min-width: 0; }
+
+    /* =====================
+       HERO
+       ===================== */
+    .hero {
+      padding: 2rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.3fr 1fr;
+        gap: 3.5rem;
+        padding: 3rem 0 5rem;
+      }
+    }
+    .hero-content { max-width: var(--measure); }
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero-intro p {
+      font-size: 1.08rem;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .hero-intro p:first-of-type {
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
+    .btn-secondary:hover {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* Hero visual (abstract SVG — placeholder, not final imagery) */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(145deg, #E8D5B7 0%, #C9A577 45%, #8B6A4A 100%);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 40%),
+        radial-gradient(circle at 75% 80%, rgba(20, 32, 38, 0.3), transparent 50%);
+    }
+    .hero-visual svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-visual .placeholder-tag {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(253, 251, 246, 0.7);
+      font-weight: 600;
+    }
+
+    /* =====================
+       SECTIONS
+       ===================== */
+    section { scroll-margin-top: 5rem; }
+    .section-prose {
+      padding: 3rem 0;
+      max-width: var(--measure);
+    }
+    .section-prose h2 { margin-bottom: 1.5rem; }
+    .section-prose p { font-size: 1.05rem; color: var(--ink); }
+    .section-prose p:first-of-type {
+      font-size: 1.1rem;
+    }
+    .section-services {
+      padding: 3rem 0;
+    }
+    .section-faqs {
+      padding: 3rem 0;
+      max-width: 860px;
+    }
+    .section-heading {
+      max-width: var(--measure);
+      margin-bottom: 2rem;
+    }
+    .section-heading p {
+      color: var(--ink-muted);
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+    }
+
+    /* =====================
+       SERVICE GRID
+       ===================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 600px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    }
+    @media (min-width: 1000px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      min-height: 280px;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .service-card-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-soft);
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      color: var(--primary);
+    }
+    .service-card-icon svg { width: 22px; height: 22px; }
+    .service-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      margin: 0;
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+    .service-card-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.15s;
+    }
+    .service-card:hover .service-card-link { gap: 0.55rem; }
+
+    /* =====================
+       FAQ ACCORDION
+       ===================== */
+    .faq-list {
+      margin-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.4rem 0;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: color 0.15s;
+    }
+    .faq-trigger:hover { color: var(--primary); }
+    .faq-trigger-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      color: var(--primary);
+    }
+    .faq-trigger-icon::before,
+    .faq-trigger-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      background: currentColor;
+      transition: transform 0.25s ease;
+    }
+    .faq-trigger-icon::before {
+      width: 14px;
+      height: 1.5px;
+    }
+    .faq-trigger-icon::after {
+      width: 1.5px;
+      height: 14px;
+    }
+    .faq-item[open] .faq-trigger-icon::after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+    .faq-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+    .faq-item[open] .faq-body {
+      max-height: 600px;
+    }
+    .faq-body-inner {
+      padding-bottom: 1.4rem;
+      padding-right: 2rem;
+      color: var(--ink-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .faq-body-inner p { margin: 0; }
+
+    /* =====================
+       CLOSING CTA / FORM
+       ===================== */
+    .closing-cta {
+      margin: 3rem -1.5rem 0;
+      background: var(--bg-dark);
+      color: var(--bg);
+      padding: 4rem 1.5rem;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 1100px) {
+      .closing-cta { margin-left: 0; margin-right: 0; border-radius: 12px; }
+    }
+    .closing-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(184, 132, 90, 0.12), transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(30, 80, 96, 0.3), transparent 50%);
+      pointer-events: none;
+    }
+    .closing-inner {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 900px) {
+      .closing-inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
+    }
+    .closing-cta h2 {
+      color: var(--bg);
+      margin-bottom: 1.5rem;
+    }
+    .closing-left p {
+      color: rgba(253, 251, 246, 0.82);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+    .closing-phone {
+      margin-top: 2rem;
+    }
+    .phone-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.08rem;
+      text-decoration: none;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .phone-btn:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      color: var(--bg-dark);
+    }
+    .service-area-note {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: rgba(253, 251, 246, 0.6);
+    }
+    .contact-form {
+      background: rgba(253, 251, 246, 0.04);
+      border: 1px solid rgba(253, 251, 246, 0.1);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    .form-field {
+      margin-bottom: 1rem;
+    }
+    .form-field label {
+      display: block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(253, 251, 246, 0.7);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      background: rgba(253, 251, 246, 0.05);
+      border: 1px solid rgba(253, 251, 246, 0.2);
+      border-radius: 6px;
+      padding: 0.7rem 0.85rem;
+      color: var(--bg);
+      font-family: inherit;
+      font-size: 0.98rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(253, 251, 246, 0.08);
+    }
+    .form-field select option { background: var(--bg-dark); color: var(--bg); }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+    .form-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 500px) {
+      .form-field-row { grid-template-columns: 1fr; }
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: var(--bg-dark);
+      font-weight: 700;
+      padding: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: background 0.15s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: var(--accent-soft); }
+
+    /* =====================
+       FOOTER
+       ===================== */
+    .site-footer {
+      background: var(--bg-soft);
+      padding: 3rem 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 700px) {
+      .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-brand { max-width: 360px; }
+    .footer-brand .wordmark { font-size: 1.25rem; }
+    .footer-brand p {
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+    }
+    .footer-col h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-subtle);
+      margin-bottom: 1rem;
+      font-family: 'Figtree', sans-serif;
+      font-weight: 600;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .footer-col a:hover { color: var(--primary); text-decoration: underline; }
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--ink-subtle);
+    }
+    .tps-mark {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-variation-settings: 'opsz' 16;
+    }
+
+    /* =====================
+       MOBILE STICKY CTA
+       ===================== */
+    .mobile-call-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: var(--bg-dark);
+      padding: 0.75rem 1rem;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    }
+    .mobile-call-bar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 0.85rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    @media (max-width: 700px) {
+      .mobile-call-bar { display: block; }
+      body { padding-bottom: 4rem; }
+    }
+
+    /* =====================
+       INTERIM DESIGN NOTICE
+       ===================== */
+    .design-notice {
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--accent);
+      padding: 0.65rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #5C4530;
+      font-family: 'Figtree', sans-serif;
+    }
+    .design-notice strong { color: #3D2E1F; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- Interim design notice — clearly identifies this as placeholder, not final brand -->
+  <div class="design-notice">
+    <strong>Interim mockup</strong> — placeholder design language. Final brand pending Kahawai delivery.
+  </div>
+
+  <!-- Sticky site header -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#top" class="wordmark">Boyette<span>.</span> Pump &amp; Well</a>
+      <ul class="main-nav">
+        <li><a href="#">Services</a></li>
+        <li><a href="#" class="active">Water Treatment</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <a href="tel:+10000000000" class="header-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="label">Call Now</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="#">Services</a>
+    <span class="sep">›</span>
+    <span>Water Treatment</span>
+  </nav>
+
+  <!-- Main page layout: TOC rail + content -->
+  <div class="page-layout">
+
+    <!-- Sticky TOC rail (desktop only) -->
+    <aside class="toc-rail" aria-label="On this page">
+      <p class="toc-label">On this page</p>
+      <ul class="toc-list" id="toc-list">
+        <li><a href="#common-issues">Common Issues</a></li>
+        <li><a href="#our-process">Our Process</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </aside>
+
+    <article class="page-content">
+
+      <!-- ============ HERO ============ -->
+      <section id="top" class="hero">
+        <div class="hero-content">
+          <h1>Water Treatment Services for Well Water in Tampa Bay and Ocala</h1>
+          <div class="hero-intro">
+            <p>Most homeowners on city water never think about what's in it. When you're on a private well, that's not an option.</p>
+            <p>Well water doesn't go through a municipal treatment plant before it reaches your tap. What comes up depends entirely on what's in the ground beneath your property — and in Tampa Bay and Ocala, that varies more than most people expect. Hard minerals, iron, sulfur, sediment, nitrates — the list is long, and no two wells are identical.</p>
+            <p>Boyette Pump &amp; Well handles water treatment for residential and agricultural well systems across the Tampa Bay region and Ocala. If something's off with your water — the taste, the smell, the staining — we can figure out what it is and fix it.</p>
+          </div>
+          <div class="cta-row">
+            <a href="tel:+10000000000" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (XXX) XXX-XXXX
+            </a>
+            <a href="#contact" class="btn btn-secondary">Schedule Online</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Abstract water-themed SVG — placeholder, not final imagery -->
+          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(253, 251, 246, 0.15)"/>
+                <stop offset="1" stop-color="rgba(253, 251, 246, 0)"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="rgba(253, 251, 246, 0.2)" stroke-width="1.5">
+              <path d="M -50,120 Q 100,80 200,120 T 450,120"/>
+              <path d="M -50,180 Q 100,140 200,180 T 450,180"/>
+              <path d="M -50,240 Q 100,200 200,240 T 450,240"/>
+              <path d="M -50,300 Q 100,260 200,300 T 450,300"/>
+              <path d="M -50,360 Q 100,320 200,360 T 450,360"/>
+              <path d="M -50,420 Q 100,380 200,420 T 450,420"/>
+            </g>
+            <circle cx="280" cy="150" r="60" fill="rgba(253, 251, 246, 0.08)"/>
+            <circle cx="280" cy="150" r="45" fill="rgba(253, 251, 246, 0.06)"/>
+            <circle cx="280" cy="150" r="30" fill="rgba(253, 251, 246, 0.04)"/>
+          </svg>
+          <span class="placeholder-tag">Photo placeholder</span>
+        </div>
+      </section>
+
+      <!-- ============ SECTION 2: WHAT'S IN YOUR WELL WATER ============ -->
+      <section id="common-issues" class="section-prose">
+        <h2>What's in Your Well Water?</h2>
+        <p>That depends on where you are and how deep your well goes.</p>
+        <p>Florida well water tends to run hard — high in calcium and magnesium, which builds up in pipes and appliances over time. Iron is common throughout the state. It shows up fast: orange staining on fixtures, a metallic taste, rust-colored laundry. Hydrogen sulfide produces that rotten egg smell. In agricultural areas around Ocala and parts of Tampa Bay, nitrate contamination is a real concern. It doesn't change the look or taste of the water, which is exactly what makes it worth testing for.</p>
+        <p>Sediment, bacteria, and other contaminants round out the picture. None of it is unusual. All of it is treatable.</p>
+        <p>Well water problems are specific to your property. A neighbor drawing from the same aquifer can have different results. Treatment starts with understanding what's actually in your water.</p>
+      </section>
+
+      <!-- ============ SECTION 3: HOW WE ASSESS ============ -->
+      <section id="our-process" class="section-prose">
+        <h2>How We Assess Your Water Treatment Needs</h2>
+        <p>Before recommending anything, we look at what you're actually dealing with.</p>
+        <p>Danny comes out, evaluates your system, and coordinates water quality analysis through a certified third-party lab. The results drive the recommendation. If your water tests clean, we'll tell you that too.</p>
+        <p>That assessment call is also where you get real answers. What's causing the staining. Whether the smell is sulfur or something else. Whether one piece of equipment handles the problem or a combination makes more sense. You leave that conversation knowing what's going on.</p>
+      </section>
+
+      <!-- ============ SECTION 4: SERVICES GRID ============ -->
+      <section id="services" class="section-services">
+        <div class="section-heading">
+          <h2>Our Water Treatment Services</h2>
+          <p>Treatment across the full range of common well water problems — from hardness and iron to bacterial contamination and nitrates. If you're not sure which one applies to you, start with a call.</p>
+        </div>
+        <div class="services-grid">
+
+          <!-- 1. Water Softener Service -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-3 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-3-6.5-6-11z"/></svg>
+            </div>
+            <h3>Water Softener Service</h3>
+            <p>Hard water is the most common complaint from well owners in Florida. Over time it builds up inside pipes and appliances. A softener removes the calcium and magnesium that cause the buildup.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 2. Iron Removal -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Iron Removal</h3>
+            <p>Iron in well water causes orange staining, metallic taste, and rust-colored laundry. An iron removal system catches it before it reaches your plumbing and fixtures.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 3. Sulfur Removal -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M7 8h2M7 16h2M11 12h2M15 8h2M15 16h2M19 12h2"/><path d="M5 6c2 0 2 3 4 3s2-3 4-3 2 3 4 3 2-3 4-3"/></svg>
+            </div>
+            <h3>Sulfur Removal</h3>
+            <p>Hydrogen sulfide is the gas behind the rotten egg smell in some well water. Treatment removes it at the source.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 4. Whole-House Water Filtration -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+            </div>
+            <h3>Whole-House Water Filtration</h3>
+            <p>A whole-house system treats water at the point it enters your home, so every tap and appliance gets filtered water. An under-sink filter only handles one outlet.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 5. Carbon Water Filtration -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="14" x2="19" y2="14"/></svg>
+            </div>
+            <h3>Carbon Water Filtration</h3>
+            <p>Carbon filtration removes chlorine, volatile organic compounds, and the taste and odor issues they cause. It usually works alongside softening or iron removal as a final polishing stage.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 6. Nitrate Removal -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v7.5L4.5 17A3 3 0 0 0 7 22h10a3 3 0 0 0 2.5-5L15 9.5V2"/><line x1="7" y1="2" x2="17" y2="2"/></svg>
+            </div>
+            <h3>Nitrate Removal</h3>
+            <p>Nitrates don't change how water looks or tastes, so they're easy to miss without a water test. Worth checking for specifically in agricultural areas like Ocala and parts of Tampa Bay.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 7. Hydrogen Peroxide Treatment -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="3.5" ry="9"/></svg>
+            </div>
+            <h3>Hydrogen Peroxide Treatment</h3>
+            <p>When well water tests positive for bacteria, hydrogen peroxide is our preferred approach. It kills bacteria on contact and clears out through the carbon filter cleanly.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <!-- 8. Reverse Osmosis Water Treatment -->
+          <a href="#" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18L15 13v6l-6 3v-9L3 3z"/></svg>
+            </div>
+            <h3>Reverse Osmosis Water Treatment</h3>
+            <p>RO pushes water through a membrane that filters out dissolved solids, heavy metals, and contaminants whole-house filtration doesn't catch. Most people install it under the kitchen sink for drinking and cooking water.</p>
+            <span class="service-card-link">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ============ SECTION 5: FAQs ============ -->
+      <section id="faqs" class="section-faqs">
+        <div class="section-heading">
+          <h2>Water Treatment FAQs</h2>
+        </div>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-trigger">
+              How Do I Know Which Water Treatment System I Need?
+              <span class="faq-trigger-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>A water test tells you. Staining, smell, and taste are useful clues, but they don't give you the full picture. Some problems — nitrates, for example — show no signs at all. We coordinate lab testing through a certified third party and use those results to make a specific recommendation.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-trigger">
+              How Long Does a Water Treatment System Last?
+              <span class="faq-trigger-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>It depends on the system and how well it's maintained. Water softeners typically last 10–15 years with regular upkeep. Whole-house filtration systems vary — filter media needs periodic replacement, but the equipment itself can run much longer. RO membranes usually need replacement every 2–5 years depending on water quality and usage. Keeping up with service calls extends the life of any system.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-trigger">
+              What Is the Difference Between a Water Softener and a Water Filtration System?
+              <span class="faq-trigger-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>A softener targets hardness — calcium and magnesium specifically. It doesn't filter contaminants, sediment, or bacteria. A filtration system addresses those issues but doesn't soften water. Many homes with well systems benefit from both, depending on what the water test shows.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-trigger">
+              How Often Do Water Treatment Systems Need to Be Serviced or Maintained?
+              <span class="faq-trigger-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>Softeners need salt replenished regularly and a service check annually. Filtration systems need media or filter cartridge replacements on a schedule that depends on system type and water volume. RO systems need membrane checks every few years. We'll walk you through what your system needs at installation and can set up ongoing service from there.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-trigger">
+              Do You Service Existing Water Treatment Equipment or Only Install New Systems?
+              <span class="faq-trigger-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                <p>Both. If you have a softener, filtration system, or other treatment equipment that isn't performing, we can diagnose and service it. Installation isn't a requirement. If the equipment isn't worth repairing, we'll tell you that and go from there.</p>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- ============ WHY BOYETTE (HIDDEN per Option A, Q6) ============ -->
+      <!--
+        Section reserved in DOM with anchor but not rendered.
+        Unhide when at least 3 proof points are confirmed with Danny.
+      -->
+      <section id="why-boyette" hidden aria-hidden="true"></section>
+
+      <!-- ============ SECTION 7: CLOSING CTA + FORM ============ -->
+      <section id="contact" class="closing-cta">
+        <div class="closing-inner">
+
+          <div class="closing-left">
+            <h2>Get Your Well Water Working Right</h2>
+            <p>If your water has a smell, a taste, a staining problem, or you just haven't had it tested and want to know what you're working with — that's a reasonable place to start.</p>
+            <p>Boyette Pump &amp; Well serves residential and agricultural customers across the Tampa Bay region and Ocala. Local operation, not a chain. Every assessment starts with an actual look at your system.</p>
+            <div class="closing-phone">
+              <a href="tel:+10000000000" class="phone-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Call (XXX) XXX-XXXX
+              </a>
+            </div>
+            <p class="service-area-note">Serving Tampa Bay and Ocala · Residential &amp; Agricultural</p>
+          </div>
+
+          <div class="closing-right">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Mockup only — form submission not wired up.');">
+              <div class="form-field-row">
+                <div class="form-field">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-field">
+                <label for="address">Service Address or ZIP</label>
+                <input type="text" id="address" name="address" required>
+              </div>
+              <div class="form-field">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service" required>
+                  <option value="">Select one...</option>
+                  <option value="softener">Water Softener</option>
+                  <option value="whole-house">Whole-House Filtration</option>
+                  <option value="iron">Iron Removal</option>
+                  <option value="sulfur">Sulfur Removal</option>
+                  <option value="ro">Reverse Osmosis</option>
+                  <option value="h2o2">Hydrogen Peroxide Treatment</option>
+                  <option value="carbon">Carbon Filtration</option>
+                  <option value="nitrate">Nitrate Removal</option>
+                  <option value="unsure">Not sure</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="message">Message (optional)</label>
+                <textarea id="message" name="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Request Assessment</button>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="wordmark">Boyette<span>.</span> Pump &amp; Well</a>
+        <p>Pump and well service across the Tampa Bay region and Ocala. Residential and agricultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Pump Services</a></li>
+          <li><a href="#">Well Services</a></li>
+          <li><a href="#">Water Treatment</a></li>
+          <li><a href="#">Irrigation</a></li>
+          <li><a href="#">Emergency</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Boyette Pump &amp; Well</span>
+      <span class="tps-mark">Powered by The Purple Standard</span>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky call bar -->
+  <div class="mobile-call-bar">
+    <a href="tel:+10000000000">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Now — (XXX) XXX-XXXX
+    </a>
+  </div>
+
+  <script>
+    // TOC rail active-state on scroll
+    (function () {
+      const tocLinks = document.querySelectorAll('#toc-list a');
+      const sections = Array.from(tocLinks).map(link => {
+        const id = link.getAttribute('href').slice(1);
+        return document.getElementById(id);
+      }).filter(Boolean);
+
+      if (!('IntersectionObserver' in window) || sections.length === 0) return;
+
+      const linkMap = new Map();
+      tocLinks.forEach(link => {
+        const id = link.getAttribute('href').slice(1);
+        linkMap.set(id, link);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const link = linkMap.get(id);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('is-active'));
+            link.classList.add('is-active');
+          }
+        });
+      }, {
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(s => observer.observe(s));
+    })();
+  </script>
+
+</body>
+</html>
