@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tampa Bay Emergency Pump Service | Boyette Pump &amp; Well</title>
+<meta name="description" content="Boyette Pump & Well delivers emergency pump service across Tampa Bay. No water, low pressure, pump failure — call (813) 923-0008.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --color-deep: #0F2A47;
+  --color-blue: #1E5A8A;
+  --color-teal: #2D8A95;
+  --color-emergency: #C02D2D;
+  --color-emergency-hover: #A02323;
+  --color-amber: #F4B942;
+  --color-amber-bg: #FEF6E4;
+  --color-amber-border: #E0A325;
+  --color-text: #1A2332;
+  --color-text-muted: #5A6478;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F9FB;
+  --color-border: #E5E9EF;
+
+  --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-body: 'Manrope', system-ui, -apple-system, sans-serif;
+
+  --max-width: 1100px;
+  --content-width: 720px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; }
+
+/* ============ MOCKUP REFERENCE BANNER ============ */
+.ref-banner {
+  background: #0A1A2E;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.ref-banner strong {
+  color: var(--color-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-right: 8px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* ============ SITE HEADER ============ */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--color-border);
+  background: white;
+}
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-placeholder-box {
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed var(--color-text-muted);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  background: var(--color-bg-alt);
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--color-deep);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.logo-text-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.header-cta {
+  background: var(--color-emergency);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s ease;
+  box-shadow: 0 2px 8px rgba(192, 45, 45, 0.2);
+}
+.header-cta:hover { background: var(--color-emergency-hover); }
+.header-cta svg { width: 16px; height: 16px; }
+
+/* ============ HERO ============ */
+.hero {
+  padding: 80px 24px 64px;
+  background:
+    radial-gradient(ellipse at top, rgba(45, 138, 149, 0.04) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, var(--color-bg-alt) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(30, 90, 138, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+.hero-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(45, 138, 149, 0.08);
+  border-radius: 100px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--color-deep);
+  margin-bottom: 28px;
+}
+.urgency {
+  font-size: clamp(18px, 2.4vw, 22px);
+  color: var(--color-text);
+  margin: 0 auto 36px;
+  max-width: 580px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.hero-cta-wrap { margin-top: 8px; }
+.hero-cta {
+  background: var(--color-emergency);
+  color: white;
+  padding: 22px 44px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(18px, 2.6vw, 22px);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 20px rgba(192, 45, 45, 0.28);
+  letter-spacing: -0.01em;
+}
+.hero-cta:hover {
+  background: var(--color-emergency-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(192, 45, 45, 0.32);
+}
+.hero-cta svg { width: 26px; height: 26px; }
+
+/* ============ ABOVE-FOLD TRUST STRIP ============ */
+.trust-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 0 auto 28px;
+  max-width: 580px;
+  flex-wrap: wrap;
+}
+.trust-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+.trust-strip-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-teal);
+  flex-shrink: 0;
+}
+@media (max-width: 520px) {
+  .trust-strip { gap: 14px 22px; }
+  .trust-strip-item { font-size: 12px; }
+}
+
+/* ============ FORM REASSURANCE ============ */
+.form-reassurance {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 18px 0 -4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.form-reassurance svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-amber);
+}
+
+/* ============ PENDING DANNY TREATMENT ============ */
+.pending {
+  background: var(--color-amber-bg);
+  border: 2px dashed var(--color-amber-border);
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin: 24px auto;
+  max-width: 580px;
+  text-align: left;
+  position: relative;
+}
+.pending-tag {
+  position: absolute;
+  top: -11px;
+  left: 16px;
+  background: var(--color-amber-border);
+  color: white;
+  padding: 3px 12px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pending-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8B5A0E;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.pending-content {
+  color: var(--color-text);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.55;
+}
+.pending-content::before { content: '"'; }
+.pending-content::after { content: '"'; }
+
+/* ============ SERVICE STRIP ============ */
+.service-strip {
+  background: var(--color-deep);
+  color: white;
+  padding: 18px 24px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+.service-strip svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 8px;
+  opacity: 0.85;
+}
+
+/* ============ SECTIONS ============ */
+section { padding: 72px 24px; }
+.section-inner { max-width: var(--content-width); margin: 0 auto; }
+.section-bg-alt { background: var(--color-bg-alt); }
+section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  color: var(--color-deep);
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+section .lead {
+  font-size: 17px;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+/* ============ BULLET LIST ============ */
+.bullet-list { list-style: none; }
+.bullet-list li {
+  padding: 18px 0 18px 40px;
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.bullet-list li:last-child { border-bottom: none; }
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 27px;
+  width: 24px;
+  height: 2px;
+  background: var(--color-teal);
+}
+.bullet-list li.with-pending { padding-left: 0; }
+.bullet-list li.with-pending::before { display: none; }
+.bullet-list li.with-pending .pending {
+  margin: 0;
+  max-width: 100%;
+  border-radius: 8px;
+}
+.section-closer {
+  margin-top: 28px;
+  font-size: 16px;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 18px 22px;
+  background: var(--color-bg-alt);
+  border-left: 4px solid var(--color-emergency);
+  border-radius: 4px;
+}
+.section-bg-alt .section-closer { background: white; }
+
+/* ============ MID-PAGE CTA ============ */
+.mid-cta { text-align: center; margin-top: 32px; }
+.mid-cta a {
+  background: var(--color-emergency);
+  color: white;
+  padding: 18px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 19px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s ease;
+  box-shadow: 0 4px 14px rgba(192, 45, 45, 0.22);
+}
+.mid-cta a:hover { background: var(--color-emergency-hover); }
+.mid-cta svg { width: 22px; height: 22px; }
+
+/* ============ MID-PAGE BRAND STRIP ============ */
+.brand-strip {
+  background: linear-gradient(135deg, var(--color-deep) 0%, #143456 100%);
+  color: white;
+  padding: 36px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.brand-strip::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(45, 138, 149, 0.18) 0%, transparent 60%);
+}
+.brand-strip-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.brand-strip-mark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-strip-mark .logo-placeholder-box {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.04);
+}
+.brand-strip-mark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.brand-strip-mark-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-amber);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.brand-strip-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.brand-strip-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.brand-strip-trust-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+}
+.brand-strip-trust-line svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-amber);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .brand-strip-divider { display: none; }
+  .brand-strip-inner { gap: 20px; flex-direction: column; text-align: center; }
+  .brand-strip-trust { align-items: center; }
+}
+
+/* ============ SOCIAL PROOF ============ */
+.social-proof { text-align: center; }
+.social-proof .section-inner { max-width: 560px; }
+.social-proof h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-deep);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.gbp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 2px solid var(--color-deep);
+  color: var(--color-deep);
+  padding: 14px 26px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.15s ease;
+}
+.gbp-button:hover { background: var(--color-deep); color: white; }
+.gbp-note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  display: inline-block;
+  padding: 8px 14px;
+  background: var(--color-amber-bg);
+  border-radius: 4px;
+  border: 1px dashed var(--color-amber-border);
+}
+
+/* ============ PHOTO PLACEHOLDERS ============ */
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background:
+    repeating-linear-gradient(45deg, var(--color-bg-alt), var(--color-bg-alt) 12px, #EEF1F5 12px, #EEF1F5 24px);
+  border: 1.5px dashed var(--color-text-muted);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+.photo-placeholder svg {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+.photo-placeholder-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-amber-border);
+  margin-top: 6px;
+}
+.photo-section { padding: 56px 24px; }
+.photo-section .section-inner { max-width: 900px; }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.photo-grid .photo-placeholder {
+  aspect-ratio: 4 / 5;
+}
+@media (max-width: 720px) {
+  .photo-grid { grid-template-columns: 1fr 1fr; }
+  .photo-grid .photo-placeholder { aspect-ratio: 1 / 1; }
+  .photo-grid .photo-placeholder:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+}
+@media (max-width: 480px) {
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-grid .photo-placeholder,
+  .photo-grid .photo-placeholder:first-child {
+    aspect-ratio: 4 / 3;
+    grid-column: auto;
+  }
+}
+
+/* ============ COUNTY GRID ============ */
+.county-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.county {
+  background: white;
+  border: 1px solid var(--color-border);
+  padding: 16px 18px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-deep);
+  font-size: 15px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.county:hover { border-color: var(--color-teal); transform: translateY(-2px); }
+
+/* ============ FORM SECTION ============ */
+.form-section {
+  background: var(--color-deep);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top right, rgba(45, 138, 149, 0.15) 0%, transparent 60%);
+}
+.form-section .section-inner { position: relative; max-width: 560px; }
+.form-section h2 { color: white; text-align: center; }
+.form-urgency {
+  text-align: center;
+  font-size: 18px;
+  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.form-phone {
+  text-align: center;
+  margin: 32px 0 16px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.form-phone .label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin-bottom: 8px;
+}
+.form-phone a {
+  color: white;
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.02em;
+}
+.form-phone svg { width: 30px; height: 30px; }
+.divider {
+  text-align: center;
+  margin: 28px 0 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+.divider span {
+  background: var(--color-deep);
+  padding: 0 14px;
+  position: relative;
+  z-index: 1;
+}
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+form { display: grid; gap: 14px; }
+form label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: block;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+form input, form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  transition: background 0.15s, border-color 0.15s;
+}
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: var(--color-amber);
+  background: rgba(255, 255, 255, 0.1);
+}
+form input::placeholder, form textarea::placeholder { color: rgba(255, 255, 255, 0.35); }
+form textarea { resize: vertical; min-height: 90px; }
+form button {
+  background: var(--color-emergency);
+  color: white;
+  border: none;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 800;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  transition: background 0.15s ease, transform 0.15s ease;
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+form button:hover { background: var(--color-emergency-hover); transform: translateY(-1px); }
+.form-disabled-note {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* ============ FAQ (COLLAPSIBLE) ============ */
+.faq-section { padding: 64px 24px; }
+.faq-section .section-inner { max-width: 640px; }
+.faq-section h2 { text-align: center; margin-bottom: 8px; }
+.faq-section .lead { text-align: center; color: var(--color-text-muted); margin-bottom: 32px; }
+.faq-list {
+  border-top: 1px solid var(--color-border);
+}
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 44px 20px 0;
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-deep);
+  letter-spacing: -0.01em;
+  transition: color 0.15s;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-deep);
+  transition: transform 0.25s ease, background 0.15s;
+  line-height: 1;
+}
+.faq-item[open] summary::after {
+  content: '−';
+  background: var(--color-deep);
+  color: white;
+  transform: translateY(-50%) rotate(180deg);
+}
+.faq-item summary:hover { color: var(--color-teal); }
+.faq-item summary:hover::after { background: var(--color-teal); color: white; }
+.faq-answer {
+  padding: 0 44px 22px 0;
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.7;
+  animation: faq-fade 0.25s ease;
+}
+@keyframes faq-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: #0A1A2E;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 56px 24px 32px;
+  text-align: center;
+  font-size: 14px;
+}
+.footer-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.footer-mark .logo-placeholder-box {
+  width: 44px;
+  height: 44px;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+}
+.footer-mark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+  letter-spacing: -0.01em;
+  text-align: left;
+  line-height: 1.1;
+}
+.footer-mark-text span {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-amber);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.footer-phone {
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+.footer-phone svg { width: 22px; height: 22px; }
+.footer-meta { font-size: 12px; margin-top: 16px; opacity: 0.55; }
+.footer-area { margin-top: 8px; font-size: 13px; }
+
+/* ============ MOBILE STICKY CALL ============ */
+.mobile-sticky-call {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--color-emergency);
+  color: white;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.01em;
+}
+.mobile-sticky-call svg { width: 22px; height: 22px; vertical-align: -5px; margin-right: 8px; }
+
+/* ============ MOBILE ============ */
+@media (max-width: 768px) {
+  .mobile-sticky-call { display: block; }
+  body { padding-bottom: 70px; }
+  .ref-banner { font-size: 10px; padding: 8px 14px; }
+  .site-header { padding: 12px 16px; }
+  .header-cta { padding: 10px 14px; font-size: 13px; }
+  .header-cta span { display: none; }
+  .logo-text { font-size: 16px; }
+  .hero { padding: 56px 20px 48px; }
+  .hero-cta { padding: 18px 32px; }
+  section { padding: 56px 20px; }
+  .pending { padding: 20px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Subtle banner kept so page is clearly identifiable as a mockup -->
+<div class="ref-banner">
+  <strong>Mockup</strong>Visual reference only. Logo, photography, and final brand styling are pending.
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="logo-mark">
+    <div class="logo-placeholder-box" aria-label="Logo placeholder">LOGO</div>
+    <div>
+      <div class="logo-text">Boyette Pump &amp; Well</div>
+      <span class="logo-text-sub">Tampa Bay</span>
+    </div>
+  </div>
+  <a href="tel:8139230008" class="header-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>(813) 923-0008</span>
+  </a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Water Done Right</div>
+    <h1>Tampa Bay Emergency Pump Service</h1>
+    <p class="urgency">A failing pump won't wait until Monday. The longer it runs dry, the worse the repair gets.</p>
+
+    <div class="pending">
+      <span class="pending-tag">Awaiting Danny Confirmation</span>
+      <div class="pending-label">24/7 Availability Line</div>
+      <div class="pending-content">Available 24/7 for well emergencies.</div>
+    </div>
+
+    <div class="hero-cta-wrap">
+      <div class="trust-strip" aria-label="Trust signals">
+        <div class="trust-strip-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Locally Owned
+        </div>
+        <div class="trust-strip-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          8 Years Experience
+        </div>
+        <div class="trust-strip-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Whole-System Service
+        </div>
+      </div>
+      <a href="tel:8139230008" class="hero-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (813) 923-0008
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE STRIP ============ -->
+<div class="service-strip">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+  Serving Hillsborough, Pasco, Pinellas, Polk, and surrounding counties.
+</div>
+
+<!-- ============ SIGNS YOU NEED ============ -->
+<section>
+  <div class="section-inner">
+    <h2>Signs You Need Emergency Pump Service</h2>
+    <p class="lead">If you need water well emergency service, the signs are usually pretty hard to miss:</p>
+    <ul class="bullet-list">
+      <li>No water at the tap</li>
+      <li>Little to no water pressure</li>
+      <li>Pump running constantly or cycling on and off rapidly</li>
+    </ul>
+    <p class="section-closer">If any of those sound familiar, that's a call to make now — not in the morning.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT HAPPENS WHEN YOU CALL ============ -->
+<section class="section-bg-alt">
+  <div class="section-inner">
+    <h2>What Happens When You Call Boyette</h2>
+    <ul class="bullet-list">
+      <li class="with-pending">
+        <div class="pending">
+          <span class="pending-tag">Awaiting Danny Confirmation</span>
+          <div class="pending-label">Phone Triage</div>
+          <div class="pending-content">We can usually figure out what's wrong over the phone before we arrive, so we show up with the right parts on the truck.</div>
+        </div>
+      </li>
+      <li>Fast dispatch across the Tampa Bay area.</li>
+      <li>Once we're on site, we check the full system: pump, pressure tank, pressure switch, and electrical controls.</li>
+      <li class="with-pending">
+        <div class="pending">
+          <span class="pending-tag">Awaiting Danny Confirmation</span>
+          <div class="pending-label">Same-Day Replacement</div>
+          <div class="pending-content">If your pump needs to be replaced, we can usually do it the same day.</div>
+        </div>
+      </li>
+    </ul>
+    <div class="mid-cta">
+      <a href="tel:8139230008">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (813) 923-0008
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MID-PAGE BRAND STRIP ============ -->
+<div class="brand-strip">
+  <div class="brand-strip-inner">
+    <div class="brand-strip-mark">
+      <div class="logo-placeholder-box" aria-label="Logo placeholder">LOGO</div>
+      <div>
+        <div class="brand-strip-mark-text">Boyette Pump &amp; Well</div>
+        <span class="brand-strip-mark-sub">Water Done Right</span>
+      </div>
+    </div>
+    <div class="brand-strip-divider"></div>
+    <div class="brand-strip-trust">
+      <div class="brand-strip-trust-line">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Locally owned, Tampa Bay based
+      </div>
+      <div class="brand-strip-trust-line">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8 years of pump and well experience
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ WHY TAMPA BAY HOMEOWNERS ============ -->
+<section>
+  <div class="section-inner">
+    <h2>Why Tampa Bay Homeowners Call Boyette</h2>
+    <ul class="bullet-list">
+      <li>We service the whole system — pump, pressure tank, controls, and water treatment — all under one call.</li>
+      <li>We work in Florida water every day. Limestone aquifer, iron and sulfur, sand from older wells. We know what's in the local water and how it wears equipment.</li>
+      <li>When homeowners call us with no water, we move on it. We're not a contractor with a three-week backlog.</li>
+      <li class="with-pending">
+        <div class="pending">
+          <span class="pending-tag">Awaiting Danny Confirmation</span>
+          <div class="pending-label">Availability Trust Point (if 24/7 confirmed)</div>
+          <div class="pending-content">Available around the clock, so you're not stuck waiting for business hours.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PHOTO BLOCK ============ -->
+<section class="photo-section section-bg-alt">
+  <div class="section-inner">
+    <div class="photo-grid">
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        Truck or job-site photo
+        <div class="photo-placeholder-label">Pending Photography</div>
+      </div>
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Technician on the job
+        <div class="photo-placeholder-label">Pending Photography</div>
+      </div>
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        Equipment detail
+        <div class="photo-placeholder-label">Pending Photography</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="social-proof">
+  <div class="section-inner">
+    <h3>Read what Tampa Bay homeowners say.</h3>
+    <a href="#" class="gbp-button" aria-label="Google Reviews placeholder link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Read Our Google Reviews
+    </a>
+    <p class="gbp-note">GBP link placeholder — connect once Google Business Profile is live. Do not publish until then.</p>
+  </div>
+</section>
+
+<!-- ============ COUNTY LIST ============ -->
+<section class="section-bg-alt">
+  <div class="section-inner">
+    <h2>Serving Tampa Bay and Surrounding Counties</h2>
+    <p class="lead">We work across the Tampa Bay region and into north-central Florida.</p>
+    <div class="county-grid">
+      <div class="county">Hillsborough</div>
+      <div class="county">Pasco</div>
+      <div class="county">Pinellas</div>
+      <div class="county">Polk</div>
+      <div class="county">Hernando</div>
+      <div class="county">Citrus</div>
+      <div class="county">Levy</div>
+      <div class="county">Marion</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM / GET HELP NOW ============ -->
+<section class="form-section" id="get-help">
+  <div class="section-inner">
+    <h2>Get Help Now</h2>
+    <p class="form-urgency">Don't wait until Monday. Pump problems only get worse. Call now or send us a message.</p>
+
+    <div class="form-phone">
+      <span class="label">Call Direct</span>
+      <a href="tel:8139230008">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (813) 923-0008
+      </a>
+    </div>
+
+    <div class="divider"><span>OR SEND A MESSAGE</span></div>
+
+    <form onsubmit="event.preventDefault(); alert('This is a design mockup — form is not active.');">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(___) ___-____" required>
+      </div>
+      <div>
+        <label for="address">Address or Service Area</label>
+        <input type="text" id="address" name="address" placeholder="City or zip code" required>
+      </div>
+      <div>
+        <label for="issue">Brief Description of the Issue</label>
+        <textarea id="issue" name="issue" placeholder="No water, low pressure, pump cycling..." rows="3"></textarea>
+      </div>
+      <p class="form-reassurance">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Sends straight to our team — we'll be in touch fast.
+      </p>
+      <button type="submit">Request Service</button>
+    </form>
+    <p class="form-disabled-note">Mockup form — not a live submission endpoint.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ (COLLAPSIBLE) ============ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <h2>Emergency Pump Service FAQ</h2>
+    <p class="lead">Tap any question to see the answer.</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do you handle emergencies across all of Tampa Bay?</summary>
+        <div class="faq-answer">We cover Hillsborough, Pasco, Pinellas, Polk, Hernando, Citrus, Levy, and Marion counties. Not sure if your address is in our area? Call and ask — we'll tell you straight.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What kind of well pumps does Boyette service?</summary>
+        <div class="faq-answer">We work on submersible pumps, jet pumps, above-ground pumps, booster pumps, constant-pressure systems, and VFD-driven setups. If you've got a private well at your house, chances are we service the equipment running it.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What information should I have ready when I call?</summary>
+        <div class="faq-answer">Helpful but not required: roughly when the problem started, what you're hearing (or not hearing) from the pump, anything that changed right before it failed (storm, power outage, recent work on the system), and the general age of your equipment if you happen to know. If you don't know any of that, call anyway. We can work through it on the phone.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can Boyette repair my pump, or do I need a new one?</summary>
+        <div class="faq-answer">Depends on the pump and what's wrong with it. Plenty of failures are straight repairs — a pressure switch, a control box, a wiring issue, a tank problem. Others mean the pump itself is done. Once we diagnose, we'll tell you what you're looking at and why.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-mark">
+    <div class="logo-placeholder-box" aria-label="Logo placeholder">LOGO</div>
+    <div class="footer-mark-text">
+      Boyette Pump &amp; Well
+      <span>Water Done Right</span>
+    </div>
+  </div>
+  <a href="tel:8139230008" class="footer-phone">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    (813) 923-0008
+  </a>
+  <div class="footer-area">Serving Hillsborough, Pasco, Pinellas, Polk, Hernando, Citrus, Levy, and Marion counties.</div>
+  <div class="footer-meta">© Boyette Pump &amp; Well — Powered by The Purple Standard</div>
+</footer>
+
+<!-- ============ MOBILE STICKY CALL ============ -->
+<a href="tel:8139230008" class="mobile-sticky-call" aria-label="Call Boyette Pump and Well">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Call Now: (813) 923-0008
+</a>
+
+</body>
+</html>
