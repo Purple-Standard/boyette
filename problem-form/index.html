@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boyette Pump & Well — Diagnostic Form (Prototype v1.2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css">
+<style>
+/* ============================================================
+   BOY — Diagnostic Form Prototype v1.2
+   Brand-neutral placeholders. Kahawai swaps tokens below.
+   Typography is intentionally distinctive (Fraunces + Inter)
+   so Kahawai has something to react to — swap for Boyette
+   brand pairings once intake is complete.
+   ============================================================ */
+:root {
+  /* Surface / structure */
+  --color-page-bg: #f5f6f8;
+  --color-page-bg-soft: #fafbfc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f3f6;
+  --color-surface-tinted: #f4f7fb;
+  --color-border: #e4e7ed;
+  --color-border-strong: #cdd2db;
+  --color-divider: #ebeef2;
+
+  /* Text */
+  --color-text-primary: #11151c;
+  --color-text-secondary: #4d5363;
+  --color-text-tertiary: #8a92a3;
+  --color-text-inverse: #ffffff;
+
+  /* Accent (placeholder — Kahawai swaps for Boyette primary) */
+  --color-accent: #1e5fbf;
+  --color-accent-strong: #154a99;
+  --color-accent-soft: #4d83cf;
+  --color-accent-bg: #e9f0fa;
+  --color-accent-border: #b8cdee;
+  --color-accent-text: #143b7d;
+
+  /* Info / emergency strip (warm — non-alarming) */
+  --color-info-bg: #fdf6ec;
+  --color-info-border: #f0d9a8;
+  --color-info-text: #6b4a14;
+  --color-info-action: #8a5d10;
+
+  /* Success */
+  --color-success: #1e9d5d;
+  --color-success-bg: #e7f7ef;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Shape & motion */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 2px rgba(20, 23, 28, 0.04);
+  --shadow-md: 0 2px 6px rgba(20, 23, 28, 0.04), 0 6px 16px rgba(20, 23, 28, 0.05);
+  --shadow-lg: 0 4px 12px rgba(20, 23, 28, 0.05), 0 16px 40px rgba(20, 23, 28, 0.06);
+  --transition: 180ms cubic-bezier(0.2, 0, 0.2, 1);
+
+  /* Container */
+  --container-max: 1120px;
+  --container-pad: 24px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--color-page-bg);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Background decoration ---------- */
+.bg-decoration {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at top right, rgba(30, 95, 191, 0.045), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(30, 95, 191, 0.03), transparent 55%),
+    linear-gradient(180deg, var(--color-page-bg-soft) 0%, var(--color-page-bg) 70%);
+}
+
+.bg-contours {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(640px, 60vw);
+  height: min(640px, 60vw);
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at top right, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at top right, black 0%, transparent 70%);
+}
+
+.bg-contours svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Container ---------- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ---------- Site header ---------- */
+.site-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--color-divider);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  font-size: 20px;
+  box-shadow: 0 2px 6px rgba(30, 95, 191, 0.2);
+  flex-shrink: 0;
+}
+
+.brand-mark i { line-height: 1; }
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  font-optical-sizing: auto;
+}
+
+.brand-sublabel {
+  font-size: 11.5px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.header-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.header-phone:hover {
+  background: var(--color-surface-muted);
+}
+
+.header-phone .label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.header-phone .number {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-phone .number i {
+  color: var(--color-accent);
+  font-size: 15px;
+}
+
+/* ---------- Main layout ---------- */
+main {
+  padding: 24px 0 64px;
+}
+
+/* ---------- Emergency strip (persistent) ---------- */
+.emergency-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--color-info-bg);
+  border: 1px solid var(--color-info-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 36px;
+  font-size: 14px;
+  color: var(--color-info-text);
+}
+
+.emergency-strip .label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.emergency-strip .label i {
+  font-size: 18px;
+}
+
+.emergency-strip a {
+  color: var(--color-info-action);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.emergency-strip a:hover { text-decoration: underline; }
+.emergency-strip a i { font-size: 16px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+}
+
+.hero .eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-accent);
+  display: block;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: var(--color-text-primary);
+}
+
+.hero .subhead {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 580px;
+}
+
+/* ---------- Two-column layout ---------- */
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (min-width: 920px) {
+  .form-layout {
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+  }
+}
+
+/* ---------- Form card ---------- */
+.form-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
+  z-index: 1;
+}
+
+.form-card-header {
+  padding: 28px 32px 16px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.form-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 12px;
+}
+
+.form-card-title i {
+  color: var(--color-accent);
+  font-size: 16px;
+}
+
+/* ---------- Progress + step counter ---------- */
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-meta .step-counter {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.progress-meta .step-label {
+  color: var(--color-text-tertiary);
+}
+
+.progress-bar {
+  height: 5px;
+  background: var(--color-surface-muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 33%;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-soft) 100%);
+  border-radius: 999px;
+  transition: width 320ms cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+/* ---------- Step container ---------- */
+.step {
+  padding: 28px 32px 32px;
+  display: none;
+}
+
+.step.active {
+  display: block;
+  animation: fadeIn 240ms ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Step 1: symptom grid ---------- */
+.symptom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.symptom-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 16px 14px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text-primary);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 100px;
+  position: relative;
+}
+
+.symptom-card:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-muted);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.symptom-card.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  box-shadow: 0 0 0 3px rgba(30, 95, 191, 0.08);
+}
+
+.symptom-card .icon {
+  font-size: 22px;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.symptom-card.selected .icon {
+  color: var(--color-accent-strong);
+}
+
+.symptom-card .label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.symptom-card .desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.symptom-card.full-width { grid-column: 1 / -1; }
+
+.hint {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  text-align: center;
+}
+
+/* ---------- Step 2: follow-up questions ---------- */
+.question-block { margin-bottom: 24px; }
+.question-block:last-of-type { margin-bottom: 0; }
+
+.question-block .q {
+  font-weight: 600;
+  font-size: 15.5px;
+  margin-bottom: 12px;
+  color: var(--color-text-primary);
+}
+
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14.5px;
+  transition: border-color var(--transition), background var(--transition);
+  background: var(--color-surface);
+}
+
+.option:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-muted);
+}
+
+.option input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 50%;
+  margin: 0;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.option input[type="radio"]:checked { border-color: var(--color-accent); }
+
+.option input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option:has(input[type="radio"]:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+}
+
+/* ---------- Step 3: contact fields ---------- */
+.field { margin-bottom: 18px; }
+.field:last-of-type { margin-bottom: 0; }
+
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.field label .optional {
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"],
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-bg);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.pill-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.pill:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-muted);
+}
+
+.pill.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  color: var(--color-accent-text);
+  font-weight: 500;
+}
+
+.zip-input { max-width: 140px; }
+
+.confidence {
+  margin-top: 22px;
+  padding: 14px 16px;
+  background: var(--color-surface-tinted);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--color-accent-text);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.confidence i {
+  font-size: 16px;
+  color: var(--color-accent);
+}
+
+/* ---------- Step nav ---------- */
+.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.step-nav .back-link {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 0;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-nav .back-link:hover { color: var(--color-text-primary); }
+.step-nav .spacer { flex: 1; }
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(30, 95, 191, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(30, 95, 191, 0.25);
+}
+
+.btn-primary:disabled {
+  background: var(--color-border-strong);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Success state ---------- */
+.success {
+  text-align: center;
+  padding: 48px 32px 56px;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.success-icon::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--color-success-bg);
+  border-radius: 50%;
+}
+
+.success h2 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 12px;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.success p {
+  margin: 0 auto;
+  color: var(--color-text-secondary);
+  font-size: 15.5px;
+  max-width: 440px;
+  line-height: 1.55;
+}
+
+.success p a {
+  color: var(--color-info-action);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.success p a:hover { text-decoration: underline; }
+
+/* ---------- Sidebar (context) ---------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 92px;
+}
+
+@media (max-width: 919px) {
+  .sidebar {
+    position: static;
+    flex-direction: column;
+    gap: 28px;
+    padding: 24px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+}
+
+.sidebar-block { display: block; }
+
+.sidebar-block .label {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-block .label i {
+  color: var(--color-accent);
+  font-size: 14px;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 18px 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item .step-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-item.current .step-num {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  box-shadow: 0 0 0 4px var(--color-accent-bg);
+}
+
+.timeline-item.current .title { color: var(--color-text-primary); font-weight: 500; }
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 10.5px;
+  top: 26px;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--color-border);
+}
+
+.timeline-item .title {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.timeline-item .detail {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.sidebar-block .body {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.sidebar-block .body strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--color-divider);
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 32px 0;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-footer .footer-brand {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+.site-footer .footer-tps {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+.site-footer .footer-tps a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer .footer-meta {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+/* ---------- Review panel (hidden internal review tool) ---------- */
+.review-toggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: #1a1c20;
+  color: #fff;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  opacity: 0.35;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  z-index: 200;
+  transition: opacity var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.review-toggle:hover { opacity: 1; }
+.review-toggle i { font-size: 14px; }
+
+.review-toggle .count {
+  background: #d97f1a;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+.review-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 420px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  border-left: 1px solid var(--color-border);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.06);
+  transform: translateX(100%);
+  transition: transform 260ms cubic-bezier(0.2, 0, 0.2, 1);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-panel.open { transform: translateX(0); }
+
+.review-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.review-header .close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  line-height: 1;
+  font-family: inherit;
+}
+
+.review-header .close:hover { color: var(--color-text-primary); }
+
+.review-intro {
+  padding: 14px 22px;
+  background: var(--color-surface-muted);
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.review-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.review-item {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.review-item:last-child { border-bottom: none; }
+
+.review-item .ref {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.review-item .title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.review-item .detail {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.review-item.note { background: #fbfbfc; }
+.review-item.note .ref { color: #9c7c2c; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  :root { --container-pad: 16px; }
+  .site-header .container { height: 60px; }
+  .brand-mark { width: 34px; height: 34px; font-size: 18px; border-radius: 8px; }
+  .brand-name { font-size: 16px; }
+  .brand-sublabel { display: none; }
+  .header-phone .label { display: none; }
+  .header-phone .number { font-size: 15px; }
+  .hero h1 { font-size: 32px; }
+  .hero .subhead { font-size: 15.5px; }
+  .form-card-header { padding: 22px 20px 14px; }
+  .step { padding: 22px 20px 24px; }
+  .emergency-strip { padding: 10px 14px; font-size: 13px; }
+  .symptom-grid { gap: 8px; }
+  .symptom-card { padding: 14px 12px; min-height: 92px; }
+  .review-panel { width: 100vw; }
+  .pill-group { flex-direction: column; }
+  .pill { flex: 0 0 auto; }
+  .site-footer .container { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Atmospheric background -->
+<div class="bg-decoration" aria-hidden="true"></div>
+<div class="bg-contours" aria-hidden="true">
+  <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <g stroke="#1e5fbf" stroke-width="1" opacity="0.18">
+      <path d="M-100,100 Q 150,80 300,140 T 700,120"/>
+      <path d="M-100,180 Q 150,160 300,220 T 700,200"/>
+      <path d="M-100,260 Q 150,240 300,300 T 700,280"/>
+      <path d="M-100,340 Q 150,320 300,380 T 700,360"/>
+      <path d="M-100,420 Q 150,400 300,460 T 700,440"/>
+    </g>
+    <g stroke="#1e5fbf" stroke-width="0.6" opacity="0.12">
+      <circle cx="480" cy="120" r="60"/>
+      <circle cx="480" cy="120" r="100"/>
+      <circle cx="480" cy="120" r="140"/>
+      <circle cx="480" cy="120" r="180"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Site header -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="brand" aria-label="Boyette Pump and Well home">
+      <span class="brand-mark" aria-hidden="true">
+        <i class="ti ti-droplet"></i>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Boyette Pump &amp; Well</span>
+        <span class="brand-sublabel">Tampa Bay &middot; Ocala</span>
+      </span>
+    </a>
+    <a class="header-phone" href="tel:8139230008">
+      <span class="label">Call us</span>
+      <span class="number"><i class="ti ti-phone"></i> (813) 923-0008</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- Persistent emergency strip -->
+    <div class="emergency-strip" role="region" aria-label="Emergency contact">
+      <span class="label">
+        <i class="ti ti-alert-triangle"></i>
+        Need help right now?
+      </span>
+      <a href="tel:8139230008" aria-label="Call Boyette Pump and Well">
+        <i class="ti ti-phone"></i>
+        (813) 923-0008
+      </a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="eyebrow">Diagnostic request</span>
+      <h1>Tell Us What's Going On</h1>
+      <p class="subhead">A few quick questions help us prep before we call you back. We'll be in touch within one business day.</p>
+    </section>
+
+    <!-- Two-column form layout -->
+    <div class="form-layout">
+
+      <!-- Form card (primary column) -->
+      <div class="form-card">
+
+        <div class="form-card-header">
+          <div class="form-card-title">
+            <i class="ti ti-clipboard-text"></i>
+            Diagnostic
+          </div>
+          <div class="progress-meta">
+            <span class="step-counter" id="step-counter">Step 1 of 3</span>
+            <span class="step-label" id="step-label">Tell us the symptom</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- STEP 1: Symptom picker -->
+        <section class="step active" id="step-1" aria-labelledby="step-1-label">
+          <div class="symptom-grid" id="symptom-grid">
+            <button type="button" class="symptom-card" data-symptom="no-water">
+              <i class="ti ti-droplet-off icon"></i>
+              <span class="label">No water</span>
+              <span class="desc">Nothing's coming out of the faucets</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="low-pressure">
+              <i class="ti ti-trending-down icon"></i>
+              <span class="label">Low pressure</span>
+              <span class="desc">Water's coming out weak</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="pump-wont-stop">
+              <i class="ti ti-repeat icon"></i>
+              <span class="label">Pump won't stop</span>
+              <span class="desc">Pump keeps running or clicks on and off</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="water-quality">
+              <i class="ti ti-test-pipe icon"></i>
+              <span class="label">Water quality issue</span>
+              <span class="desc">Smell, color, or taste is off</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="electrical">
+              <i class="ti ti-bolt icon"></i>
+              <span class="label">Electrical issue</span>
+              <span class="desc">Pump won't turn on</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="pressure-tank">
+              <i class="ti ti-database icon"></i>
+              <span class="label">Pressure tank problem</span>
+              <span class="desc">Tank is leaking or pressure jumps around</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="leak">
+              <i class="ti ti-droplet icon"></i>
+              <span class="label">Leak around the well</span>
+              <span class="desc">Water around the pump or well head</span>
+            </button>
+            <button type="button" class="symptom-card" data-symptom="irrigation">
+              <i class="ti ti-leaf icon"></i>
+              <span class="label">Irrigation issue</span>
+              <span class="desc">Sprinkler or pump problem</span>
+            </button>
+            <button type="button" class="symptom-card full-width" data-symptom="not-sure">
+              <i class="ti ti-help icon"></i>
+              <span class="label">Not sure</span>
+              <span class="desc">Something's wrong but I can't pin it down</span>
+            </button>
+          </div>
+          <p class="hint">Pick what fits best. We'll take it from there.</p>
+        </section>
+
+        <!-- STEP 2: Conditional follow-ups -->
+        <section class="step" id="step-2" aria-labelledby="step-2-label">
+          <div id="follow-up-container"></div>
+          <div class="step-nav">
+            <button type="button" class="back-link" data-go-back>
+              <i class="ti ti-arrow-left"></i> Back
+            </button>
+            <div class="spacer"></div>
+            <button type="button" class="btn btn-primary" id="step-2-continue" disabled>Continue</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: Contact fields -->
+        <section class="step" id="step-3" aria-labelledby="step-3-label">
+          <div class="field">
+            <label for="contact-name">Your name</label>
+            <input type="text" id="contact-name" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="contact-phone">Phone number</label>
+            <input type="tel" id="contact-phone" name="phone" autocomplete="tel" required>
+          </div>
+
+          <div class="field">
+            <label for="contact-email">Email <span class="optional">(optional)</span></label>
+            <input type="email" id="contact-email" name="email" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label>Best time to call</label>
+            <div class="pill-group" role="radiogroup" aria-label="Best time to call">
+              <button type="button" class="pill" data-time="morning">Morning (7am&ndash;12pm)</button>
+              <button type="button" class="pill" data-time="afternoon">Afternoon (12pm&ndash;5pm)</button>
+              <button type="button" class="pill" data-time="anytime">Anytime</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="contact-zip">ZIP code</label>
+            <input type="text" id="contact-zip" name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" class="zip-input" required>
+          </div>
+
+          <div class="field">
+            <label for="contact-notes">Anything else we should know? <span class="optional">(optional)</span></label>
+            <textarea id="contact-notes" name="notes" rows="3"></textarea>
+          </div>
+
+          <div class="confidence">
+            <i class="ti ti-clock"></i>
+            We'll get back to you within one business day.
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="back-link" data-go-back>
+              <i class="ti ti-arrow-left"></i> Back
+            </button>
+            <div class="spacer"></div>
+            <button type="button" class="btn btn-primary" id="submit-btn">
+              Send request
+              <i class="ti ti-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- STEP 4: Success state -->
+        <section class="step" id="step-4">
+          <div class="success">
+            <div class="success-icon">
+              <i class="ti ti-check"></i>
+            </div>
+            <h2>Got It. We'll Be in Touch.</h2>
+            <p>We'll call you within one business day. For anything that can't wait, call <a href="tel:8139230008">(813) 923-0008</a>.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar (context column) -->
+      <aside class="sidebar">
+
+        <div class="sidebar-block">
+          <div class="label">
+            <i class="ti ti-route"></i>
+            What happens next
+          </div>
+          <ul class="timeline">
+            <li class="timeline-item current">
+              <span class="step-num">1</span>
+              <span class="title">You tell us what's going on</span>
+            </li>
+            <li class="timeline-item">
+              <span class="step-num">2</span>
+              <span class="title">We call you back</span>
+              <span class="detail">Within one business day.</span>
+            </li>
+            <li class="timeline-item">
+              <span class="step-num">3</span>
+              <span class="title">We come out and fix it</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-block">
+          <div class="label">
+            <i class="ti ti-map-pin"></i>
+            Service area
+          </div>
+          <p class="body"><strong>Tampa Bay and Ocala.</strong></p>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-block">
+          <div class="label">
+            <i class="ti ti-clock"></i>
+            Hours
+          </div>
+          <p class="body">Business hours pending confirmation. Call (813) 923-0008 to reach us.</p>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">Boyette Pump &amp; Well</div>
+    <div class="footer-tps">Powered by <a href="#">The Purple Standard</a></div>
+    <div class="footer-meta">Prototype v1.2 &middot; Internal review</div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     Review panel — internal use only.
+     ============================================================ -->
+<button type="button" class="review-toggle" id="review-toggle" aria-label="Open internal review panel">
+  <i class="ti ti-clipboard-list"></i>
+  Review <span class="count">8</span>
+</button>
+
+<aside class="review-panel" id="review-panel" aria-hidden="true">
+  <div class="review-header">
+    <h3>Pending Items — Internal</h3>
+    <button type="button" class="close" id="review-close" aria-label="Close review panel">×</button>
+  </div>
+  <div class="review-intro">
+    Items to resolve with Danny before this form goes live. None of these are visible in the form itself.
+  </div>
+  <div class="review-body">
+
+    <div class="review-item">
+      <div class="ref">Danny #1 · Emergency strip · Header phone</div>
+      <div class="title">Phone number discrepancy</div>
+      <div class="detail">Prototype uses (813) 923-0008 — the prominently displayed number on the live site. Several tel: links on the same page point to 813-363-9025. Confirm the correct number before go-live.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #2 · Subhead, confidence copy, success state, sidebar timeline</div>
+      <div class="title">"One business day" response window</div>
+      <div class="detail">Confirmed from the live site's quote form. Does this apply to diagnostic form submissions specifically? A homeowner with no water expects faster than a quote request.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #3 · Step 3 · Best time to call</div>
+      <div class="title">Call window hours</div>
+      <div class="detail">Currently 7am–12pm / 12pm–5pm / Anytime. Confirm 7am is accurate. Any after-hours or weekend availability to surface here?</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #4 · Step 2 · No water + Pump won't stop</div>
+      <div class="title">Cut second follow-up question on highest-stress paths</div>
+      <div class="detail">Both paths ask two follow-ups. These are the homeowner's worst moments. If the second answer doesn't change triage prep, cut it. Strong recommendation: reduce to one question on both paths.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #5 · Post-submission</div>
+      <div class="title">CRM / automation routing</div>
+      <div class="detail">What system does this submit to? ServiceTitan TBD. Affects what fields the form needs to capture and how n8n routes the payload.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #6 · Emergency strip</div>
+      <div class="title">Cross-link to /emergency-pump-service/?</div>
+      <div class="detail">Currently the strip only links to the phone number. Adding a link to the PPC landing page risks cannibalization (per cannibalization rule). Default: phone-only. Confirm.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #7 · Sidebar · "What happens next"</div>
+      <div class="title">Triage and same-day service claims removed pending confirmation</div>
+      <div class="detail">Earlier prototype version had "we can often triage over the phone" (step 2) and "same-day service when we have the parts and the schedule" (step 3) in the sidebar timeline. Both stripped — they're carried from the emergency hub copy work and remain unconfirmed by Danny. Once verified, add them back as detail lines on step 2 and step 3.</div>
+    </div>
+
+    <div class="review-item">
+      <div class="ref">Danny #8 · Sidebar · Hours</div>
+      <div class="title">Business hours not confirmed</div>
+      <div class="detail">Sidebar reads "Business hours pending confirmation. Call (813) 923-0008 to reach us." as fully neutral placeholder. Set the actual hours once Danny confirms (same dependency as #3, but #3 covers the "best time to call" pills inside the form; this covers the sidebar surface).</div>
+    </div>
+
+    <div class="review-item note">
+      <div class="ref">UX note · Internal</div>
+      <div class="title">"Not sure" path step counter jump</div>
+      <div class="detail">Per spec, the counter is hardcoded "Step X of 3." Selecting "Not sure" skips step 2 entirely, so the counter jumps from "Step 1 of 3" to "Step 3 of 3." Built per spec; minor inconsistency. If we want to fix later, switch to "Step X of N" with N adjusting to the actual path length.</div>
+    </div>
+
+  </div>
+</aside>
+
+<script>
+/* ============================================================
+   State + symptom configuration
+   ============================================================ */
+const state = {
+  symptom: null,
+  followUps: {},
+  contact: {
+    name: '', phone: '', email: '', time: null, zip: '', notes: ''
+  },
+  history: [1]
+};
+
+const followUpMap = {
+  'no-water': [
+    {
+      id: 'when',
+      q: "When did you lose water?",
+      options: [
+        { v: 'today', label: 'Sometime today' },
+        { v: 'few-days', label: 'Past few days' },
+        { v: 'gradual', label: 'Slowly getting worse over time' }
+      ]
+    },
+    {
+      id: 'electrical',
+      q: "Notice any electrical issues?",
+      options: [
+        { v: 'breaker', label: 'A breaker tripped' },
+        { v: 'no-power', label: 'No power to the pump area' },
+        { v: 'fine', label: 'Power seems fine' },
+        { v: 'not-sure', label: 'Not sure' }
+      ]
+    }
+  ],
+  'low-pressure': [
+    {
+      id: 'where',
+      q: "Where is the pressure low?",
+      options: [
+        { v: 'whole-house', label: 'Everywhere in the house' },
+        { v: 'one-spot', label: 'One room or one fixture' },
+        { v: 'multi-run', label: 'Only when more than one thing is running' }
+      ]
+    },
+    {
+      id: 'onset',
+      q: "How did it start?",
+      options: [
+        { v: 'sudden', label: 'Dropped suddenly' },
+        { v: 'gradual', label: 'Slowly getting worse' },
+        { v: 'always', label: "It's always been like this" }
+      ]
+    }
+  ],
+  'pump-wont-stop': [
+    {
+      id: 'doing',
+      q: "What's the pump doing?",
+      options: [
+        { v: 'loud', label: 'Making loud or grinding sounds' },
+        { v: 'cycling', label: 'Clicking on and off fast' },
+        { v: 'wont-shut', label: "Just won't shut off" }
+      ]
+    },
+    {
+      id: 'duration',
+      q: "How long has this been going on?",
+      options: [
+        { v: 'just-started', label: 'Just started' },
+        { v: 'days', label: 'A few days now' },
+        { v: 'weeks', label: 'Weeks or longer' }
+      ]
+    }
+  ],
+  'water-quality': [
+    {
+      id: 'symptom',
+      q: "What are you noticing?",
+      options: [
+        { v: 'sulfur', label: 'Rotten egg or sulfur smell' },
+        { v: 'rust', label: 'Rust or orange color' },
+        { v: 'cloudy', label: 'Cloudy or milky water' },
+        { v: 'taste', label: 'Bad or chemical taste' },
+        { v: 'multiple', label: 'More than one of these' }
+      ]
+    }
+  ],
+  'electrical': [
+    {
+      id: 'happening',
+      q: "What's happening?",
+      options: [
+        { v: 'wont-turn-on', label: "Pump won't turn on at all" },
+        { v: 'breaker-trips', label: 'Breaker keeps tripping' },
+        { v: 'intermittent', label: 'Works sometimes, not others' },
+        { v: 'control-box', label: 'Looks like a control box problem' }
+      ]
+    }
+  ],
+  'pressure-tank': [
+    {
+      id: 'doing',
+      q: "What's the tank doing?",
+      options: [
+        { v: 'fluctuating', label: 'Pressure jumps around or pulsing water' },
+        { v: 'leak', label: 'Visible leak or dripping' },
+        { v: 'cycling', label: 'Pump cycling on and off fast' },
+        { v: 'not-sure', label: "Not sure, but something's off" }
+      ]
+    }
+  ],
+  'leak': [
+    {
+      id: 'where',
+      q: "Where's the leak?",
+      options: [
+        { v: 'pump', label: 'At or near the pump' },
+        { v: 'tank', label: 'At the pressure tank' },
+        { v: 'wellhead', label: 'Near the well head or underground' },
+        { v: 'unknown', label: 'Not sure, just wet ground or floor' }
+      ]
+    }
+  ],
+  'irrigation': [
+    {
+      id: 'issue',
+      q: "What's the issue?",
+      options: [
+        { v: 'pump-off', label: "Pump isn't running" },
+        { v: 'low-pressure', label: 'Low pressure to sprinklers' },
+        { v: 'wont-start', label: "System won't start" },
+        { v: 'uneven', label: 'Uneven coverage or zones not working' }
+      ]
+    }
+  ],
+  'not-sure': null
+};
+
+const stepLabels = {
+  1: 'Tell us the symptom',
+  2: 'A few more details',
+  3: 'Your contact info'
+};
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+function goToStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+
+  const displayN = n === 4 ? 3 : n;
+  document.getElementById('step-counter').textContent = 'Step ' + displayN + ' of 3';
+  document.getElementById('step-label').textContent = stepLabels[displayN] || '';
+
+  const progressMap = { 1: 33, 2: 66, 3: 100, 4: 100 };
+  document.getElementById('progress-fill').style.width = progressMap[n] + '%';
+
+  if (state.history[state.history.length - 1] !== n) {
+    state.history.push(n);
+  }
+
+  // Update sidebar timeline current state to match form progress
+  document.querySelectorAll('.timeline-item').forEach(li => li.classList.remove('current'));
+  if (n === 4) {
+    // Success — all steps complete; mark final as current
+    document.querySelectorAll('.timeline-item')[1].classList.add('current');
+  } else {
+    document.querySelectorAll('.timeline-item')[0].classList.add('current');
+  }
+
+  // Hide progress meta on success
+  document.querySelector('.form-card-header').style.display = (n === 4) ? 'none' : 'block';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goBack() {
+  if (state.history.length < 2) return;
+  state.history.pop();
+  const prev = state.history[state.history.length - 1];
+  state.history.pop();
+  goToStep(prev);
+}
+
+/* ============================================================
+   Step 1 — symptom selection + auto-advance
+   ============================================================ */
+document.querySelectorAll('.symptom-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const symptom = card.dataset.symptom;
+    state.symptom = symptom;
+
+    document.querySelectorAll('.symptom-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+
+    setTimeout(() => {
+      if (followUpMap[symptom] === null) {
+        goToStep(3);
+      } else {
+        renderFollowUps(symptom);
+        goToStep(2);
+      }
+    }, 350);
+  });
+});
+
+/* ============================================================
+   Step 2 — render follow-ups dynamically
+   ============================================================ */
+function renderFollowUps(symptom) {
+  const questions = followUpMap[symptom];
+  const container = document.getElementById('follow-up-container');
+  container.innerHTML = '';
+  state.followUps = {};
+
+  questions.forEach((qData) => {
+    const block = document.createElement('div');
+    block.className = 'question-block';
+
+    const qLabel = document.createElement('div');
+    qLabel.className = 'q';
+    qLabel.textContent = qData.q;
+    block.appendChild(qLabel);
+
+    const optList = document.createElement('div');
+    optList.className = 'option-list';
+
+    qData.options.forEach(opt => {
+      const labelEl = document.createElement('label');
+      labelEl.className = 'option';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q-' + qData.id;
+      input.value = opt.v;
+      input.addEventListener('change', () => {
+        state.followUps[qData.id] = opt.v;
+        checkStep2Complete();
+      });
+
+      const text = document.createElement('span');
+      text.textContent = opt.label;
+
+      labelEl.appendChild(input);
+      labelEl.appendChild(text);
+      optList.appendChild(labelEl);
+    });
+
+    block.appendChild(optList);
+    container.appendChild(block);
+  });
+}
+
+function checkStep2Complete() {
+  const questions = followUpMap[state.symptom] || [];
+  const allAnswered = questions.every(q => state.followUps[q.id]);
+  document.getElementById('step-2-continue').disabled = !allAnswered;
+}
+
+document.getElementById('step-2-continue').addEventListener('click', () => {
+  goToStep(3);
+});
+
+/* ============================================================
+   Step 3 — pill selector + submit
+   ============================================================ */
+document.querySelectorAll('.pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    state.contact.time = pill.dataset.time;
+  });
+});
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+  state.contact.name = document.getElementById('contact-name').value.trim();
+  state.contact.phone = document.getElementById('contact-phone').value.trim();
+  state.contact.email = document.getElementById('contact-email').value.trim();
+  state.contact.zip = document.getElementById('contact-zip').value.trim();
+  state.contact.notes = document.getElementById('contact-notes').value.trim();
+
+  if (!state.contact.name || !state.contact.phone || !state.contact.zip || !state.contact.time) {
+    alert('Please fill in name, phone, ZIP, and best time to call.');
+    return;
+  }
+
+  console.log('Diagnostic form payload:', JSON.parse(JSON.stringify(state)));
+  goToStep(4);
+});
+
+/* Back buttons */
+document.querySelectorAll('[data-go-back]').forEach(btn => {
+  btn.addEventListener('click', goBack);
+});
+
+/* ============================================================
+   Review panel toggle
+   ============================================================ */
+const reviewToggle = document.getElementById('review-toggle');
+const reviewPanel = document.getElementById('review-panel');
+const reviewClose = document.getElementById('review-close');
+
+function openReview() {
+  reviewPanel.classList.add('open');
+  reviewPanel.setAttribute('aria-hidden', 'false');
+}
+function closeReview() {
+  reviewPanel.classList.remove('open');
+  reviewPanel.setAttribute('aria-hidden', 'true');
+}
+
+reviewToggle.addEventListener('click', openReview);
+reviewClose.addEventListener('click', closeReview);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'r' || e.key === 'R') {
+    if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+    reviewPanel.classList.contains('open') ? closeReview() : openReview();
+  }
+  if (e.key === 'Escape') closeReview();
+});
+
+</script>
+
+</body>
+</html>
