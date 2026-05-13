@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Indexing: this is a form-submission confirmation page. Do not index. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Thank You — Boyette Pump &amp; Well</title>
+
+  <!-- Canonical: self-referencing per brief. Adjust if WordPress permalinks add a trailing variation. -->
+  <link rel="canonical" href="https://www.boyettepumpwell.com/thank-you/" />
+
+  <!-- Favicon: matches the live site -->
+  <link rel="icon" type="image/png" href="https://www.boyettepumpwell.com/wp-content/uploads/2026/04/boyette-pump-well-favicon-300x300.png" />
+
+  <!--
+    Kahawai handoff notes:
+    1. Tailwind is loaded via CDN here. Replace with the Kahawai theme's compiled Tailwind build.
+    2. Brand tokens are scoped via CSS custom properties under :root — swap values when the
+       Kahawai branding intake is final. Currently sourced from the live site:
+       - Brand purple #49104F (from inline SVG fill on the live homepage)
+       - Dark footer treatment (matches live site)
+    3. Logo URL points to the existing WordPress media library asset (light stacked variant).
+       Update if Kahawai replaces the logo file during the rebuild.
+    4. Typography is intentionally left to the system stack as a placeholder. Replace with the
+       Kahawai brand typography once the branding deliverable lands.
+    5. GTM container snippet placeholders are below — fill in the container ID at launch.
+       A pageview on this URL is the BOFU conversion confirmation trigger for multiple forms.
+  -->
+
+  <!-- TODO Kahawai: replace with theme-compiled Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    // Tailwind config: brand tokens. Kahawai will move these into tailwind.config.js
+    // when the build is integrated into the theme.
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: 'var(--brand)',
+              dark: 'var(--brand-dark)',
+              light: 'var(--brand-light)',
+            },
+            ink: 'var(--ink)',
+            'ink-muted': 'var(--ink-muted)',
+            surface: 'var(--surface)',
+            'surface-soft': 'var(--surface-soft)',
+          },
+          fontFamily: {
+            // Placeholder stack. Kahawai swaps with brand fonts.
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      /* Brand tokens — confirmed from live site inline SVG. Kahawai may refine. */
+      --brand: #49104F;
+      --brand-dark: #2D0A32;
+      --brand-light: #7A3680;
+
+      /* Surfaces */
+      --surface: #FFFFFF;
+      --surface-soft: #FAF8F9;
+      --surface-deep: #141014;
+
+      /* Type */
+      --ink: #1A1A1A;
+      --ink-muted: #6B6B6B;
+      --ink-on-dark: #F5F2F4;
+      --ink-on-dark-muted: #A8A0A6;
+
+      /* Lines */
+      --line-subtle: #EAE6E8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--surface);
+      color: var(--ink);
+      font-feature-settings: "ss01", "kern";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip link — accessible but visually hidden until focused */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--brand);
+      color: white;
+      padding: 8px 16px;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Subtle entrance — calm, not flashy */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .rise-1 { animation: rise 0.6s cubic-bezier(.2,.7,.3,1) both; }
+    .rise-2 { animation: rise 0.6s cubic-bezier(.2,.7,.3,1) 0.08s both; }
+    .rise-3 { animation: rise 0.6s cubic-bezier(.2,.7,.3,1) 0.16s both; }
+    .rise-4 { animation: rise 0.6s cubic-bezier(.2,.7,.3,1) 0.24s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rise-1, .rise-2, .rise-3, .rise-4 { animation: none; }
+    }
+
+    /*
+      Programmatic focus on the H1 (set via JS at page load) shouldn't show a focus ring —
+      the user already knows they're on the confirmation page. Keyboard Tab navigation
+      will skip the H1 (tabindex="-1") and land on the phone link instead.
+    */
+    main h1:focus { outline: none; }
+
+    /* Print: confirmation copy on a clean white sheet, no chrome */
+    @media print {
+      header, footer { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      main {
+        min-height: auto !important;
+        padding: 0.75in 0.5in !important;
+        background: #fff !important;
+      }
+      /*
+        Note: we don't expand tel: hrefs in print because the phone number is already
+        visible in the link text. Adding "(tel:8139230008)" after it would be noise.
+      */
+      /* No animations on print */
+      .rise-1, .rise-2, .rise-3, .rise-4 { animation: none !important; opacity: 1 !important; transform: none !important; }
+    }
+
+    /* Small decorative drop — matches the water/pump category without being literal */
+    .drop {
+      width: 12px;
+      height: 16px;
+      background: var(--brand);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform: rotate(0deg);
+      display: inline-block;
+    }
+  </style>
+
+  <!--
+    GTM CONTAINER SNIPPET — paste at launch.
+    Pageview trigger on /thank-you/ fires the BOFU conversion.
+    Multi-form attribution: pass form name via dataLayer on submission so this trigger
+    can segment by form source (diagnostic vs. quote vs. future forms).
+  -->
+  <!-- <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+</head>
+
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!--
+    GTM noscript fallback — paste at launch.
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  -->
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <!--
+    Matches the live site treatment: dark band, light stacked logo, phone CTA right.
+    In production Kahawai will replace this with the shared site header component.
+  -->
+  <header class="bg-[color:var(--surface-deep)] text-[color:var(--ink-on-dark)]">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-4">
+      <a href="https://www.boyettepumpwell.com/" class="block shrink-0" aria-label="Boyette Pump &amp; Well — Home">
+        <img
+          src="https://www.boyettepumpwell.com/wp-content/uploads/2026/04/BOY-LOGO-STACKED-COLOR-LIGHT.png"
+          alt="Boyette Pump &amp; Well"
+          class="h-12 sm:h-14 w-auto"
+          width="200" height="80"
+        />
+      </a>
+      <a
+        href="tel:8139230008"
+        class="inline-flex items-center gap-2 text-sm sm:text-base font-medium tracking-tight border border-white/20 hover:border-white/60 hover:bg-white/5 transition-colors duration-200 rounded-full px-4 sm:px-5 py-2 sm:py-2.5"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true">
+          <path d="M19.23 15.26l-2.54-.29a1.5 1.5 0 00-1.32.43l-1.83 1.83a13.5 13.5 0 01-5.91-5.91L9.46 9.5a1.5 1.5 0 00.43-1.32l-.29-2.52A1.5 1.5 0 008.11 4.34h-2.4A1.5 1.5 0 004.2 5.94 17.66 17.66 0 0018.05 19.79a1.5 1.5 0 001.6-1.51v-2.39a1.5 1.5 0 00-1.32-1.5z"/>
+        </svg>
+        <span>Call (813) 923-0008</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ MAIN — CONFIRMATION BLOCK ============ -->
+  <main id="main" class="flex-1 flex items-center justify-center bg-[color:var(--surface-soft)] px-5 sm:px-8 py-20 sm:py-28">
+    <div class="w-full max-w-2xl text-center">
+
+      <!-- Small water drop — picks up the brand purple, nods to the trade without being literal -->
+      <div class="rise-1 flex justify-center mb-7 sm:mb-9" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" class="w-7 h-9 sm:w-8 sm:h-10 text-[color:var(--brand)]" fill="currentColor">
+          <path d="M12 0 C12 0, 2 12, 2 20 C2 26.6, 6.5 32, 12 32 C17.5 32, 22 26.6, 22 20 C22 12, 12 0, 12 0 Z M12 4.5 C13.5 6.6, 19 14, 19 20 C19 24.9, 15.9 29, 12 29 C8.1 29, 5 24.9, 5 20 C5 14, 10.5 6.6, 12 4.5 Z" opacity="0.92"/>
+          <ellipse cx="9" cy="22" rx="2.2" ry="3.4" fill="white" opacity="0.35"/>
+        </svg>
+      </div>
+
+      <!-- H1 — locked copy per brief. Title case per TPS standard. -->
+      <!-- tabindex="-1" allows page-load focus for keyboard/screen-reader users without adding to tab sequence -->
+      <h1 tabindex="-1" class="rise-2 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[color:var(--ink)] leading-tight">
+        Thanks, Message Received.
+      </h1>
+
+      <!-- Body — locked copy per brief -->
+      <p class="rise-3 mt-5 sm:mt-6 text-lg sm:text-xl text-[color:var(--ink-muted)] leading-relaxed">
+        Your form's in. We'll get back to you within one business day.
+      </p>
+
+      <!--
+        Secondary line — locked copy per brief.
+        Phone link is intentionally one type-size larger than the surrounding sentence,
+        with extra vertical padding to give a comfortable 44px+ tap target on mobile.
+        For a stressed homeowner one-handed on a phone, this is the most important
+        affordance on the page.
+      -->
+      <p class="rise-4 mt-8 sm:mt-10 text-base sm:text-lg text-[color:var(--ink)] leading-relaxed">
+        If it can't wait, <a
+          href="tel:8139230008"
+          class="inline-block py-1 font-bold text-lg sm:text-xl text-[color:var(--brand)] hover:text-[color:var(--brand-dark)] underline decoration-2 underline-offset-4 decoration-[color:var(--brand)]/40 hover:decoration-[color:var(--brand-dark)] transition-colors duration-200"
+        >call (813) 923-0008</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <!--
+    Four-column layout per brief. Matches the live site's dark footer treatment.
+    Service link hrefs reflect Phase 2 hubs that are not yet live — Kahawai should
+    handle inactive-state styling and/or noindex on placeholder routes as they go live.
+  -->
+  <footer class="bg-[color:var(--surface-deep)] text-[color:var(--ink-on-dark)]">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+        <!-- Column 1 — Brand -->
+        <div class="space-y-5">
+          <a href="https://www.boyettepumpwell.com/" aria-label="Boyette Pump &amp; Well — Home">
+            <img
+              src="https://www.boyettepumpwell.com/wp-content/uploads/2026/04/BOY-LOGO-STACKED-COLOR-LIGHT.png"
+              alt="Boyette Pump &amp; Well"
+              class="h-16 w-auto"
+              width="200" height="80"
+            />
+          </a>
+          <p class="text-sm leading-relaxed text-[color:var(--ink-on-dark-muted)]">
+            End-to-end water system services for Tampa Bay and surrounding counties.
+          </p>
+          <a href="https://thepurplestandard.com" class="inline-block pt-2" aria-label="Powered by The Purple Standard">
+            <img
+              src="https://www.boyettepumpwell.com/wp-content/uploads/2026/04/powered-by-the-purple-standard.png"
+              alt="Powered by The Purple Standard"
+              class="h-9 w-auto"
+            />
+          </a>
+        </div>
+
+        <!-- Column 2 — Services -->
+        <!-- Kahawai: Phase 2 hubs not yet live at Phase 1 launch.
+             Either render these as inactive (text only, no link) or link with appropriate
+             handling for unpublished routes. Activate as each hub goes live. -->
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink-on-dark)] mb-5">
+            Services
+          </h2>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="/services/pump-services/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Pump Services
+              </a>
+            </li>
+            <li>
+              <a href="/services/well-services/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Well Services
+              </a>
+            </li>
+            <li>
+              <a href="/services/water-treatment/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Water Treatment
+              </a>
+            </li>
+            <li>
+              <a href="/services/irrigation/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Irrigation &amp; Outdoor
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 — Support / Resources -->
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink-on-dark)] mb-5">
+            Support
+          </h2>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="/contact/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Contact Us
+              </a>
+            </li>
+            <li>
+              <a href="/emergency-pump-service/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Emergency Service
+              </a>
+            </li>
+            <li>
+              <a href="/faq/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                FAQ
+              </a>
+            </li>
+            <!-- Blog placeholder — Phase 3, not yet live. Activate at Phase 3 launch. -->
+            <li>
+              <span class="text-[color:var(--ink-on-dark-muted)] opacity-60 cursor-default" title="Coming soon">
+                Blog
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 — Company -->
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink-on-dark)] mb-5">
+            Company
+          </h2>
+          <ul class="space-y-3 text-sm">
+            <!-- About Us placeholder — future. Activate when page exists. -->
+            <li>
+              <span class="text-[color:var(--ink-on-dark-muted)] opacity-60 cursor-default" title="Coming soon">
+                About Us
+              </span>
+            </li>
+            <li>
+              <a href="/service-areas/" class="text-[color:var(--ink-on-dark-muted)] hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+                Service Areas
+              </a>
+            </li>
+            <!-- Reviews placeholder — future. -->
+            <li>
+              <span class="text-[color:var(--ink-on-dark-muted)] opacity-60 cursor-default" title="Coming soon">
+                Reviews
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Service area line + social placeholder row -->
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div>
+          <h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--ink-on-dark-muted)] mb-2">
+            Service Area
+          </h2>
+          <p class="text-sm text-[color:var(--ink-on-dark)]">
+            Tampa Bay and surrounding counties.
+          </p>
+        </div>
+
+        <!--
+          Social media profiles not yet established.
+          Kahawai: add icons + URLs when profiles go live. Suggested structure preserved
+          here so theme integration doesn't need a re-layout.
+        -->
+        <!--
+        <ul class="flex items-center gap-4">
+          <li><a href="" aria-label="Facebook"><svg ... /></a></li>
+          <li><a href="" aria-label="Instagram"><svg ... /></a></li>
+        </ul>
+        -->
+      </div>
+
+      <!-- Legal bar -->
+      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[color:var(--ink-on-dark-muted)]">
+        <p>&copy; 2026 Boyette Pump &amp; Well. All rights reserved.</p>
+        <ul class="flex items-center gap-5">
+          <li>
+            <a href="/privacy-policy/" class="hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a href="/terms-of-service/" class="hover:text-[color:var(--ink-on-dark)] transition-colors duration-200">
+              Terms of Service
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+  <!--
+    Page-load focus: move keyboard/screen-reader focus to the H1 so users land at
+    the confirmation message, not at the top of the page. preventScroll keeps the
+    viewport position stable in case the user scrolled before the script ran.
+    The H1's tabindex="-1" allows programmatic focus without polluting the Tab order —
+    next Tab from this state lands on the phone link, which is the right escape hatch.
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var h1 = document.querySelector('main h1');
+      if (h1 && typeof h1.focus === 'function') {
+        h1.focus({ preventScroll: true });
+      }
+    });
+  </script>
+
+</body>
+</html>
